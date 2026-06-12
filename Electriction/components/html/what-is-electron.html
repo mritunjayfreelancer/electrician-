@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>What is Electron? Working Principle, Deep Theory & Technical Q&A | ITI Master</title>
+    <meta name="description"
+        content="Master the concepts of Electron Charge, Rest Mass, Valence Shell Dynamics, Drift Velocity, and Semiconductor Excitation. Professional ITI Electrician Theory Hub.">
+    <meta name="keywords"
+        content="Electron, Atomic Structure, Valence Band, Free Electrons, Electric Current Mechanism, ITI Electrician Theory, Conventional Current, Semiconductor Physics">
+    <meta name="robots" content="index, follow">
+    <link class="seo-canonical" rel="canonical" href="https://yourdomain.com/components/html/what-is-electron.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-main: #0B0F19;
+            --bg-card: #131A2C;
+            --bg-cyber: #1E293B;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --neon-cyan: #06B6D4;
+            --neon-amber: #F59E0B;
+            --neon-green: #10B981;
+            --border-color: #334155;
+        }
+
+        [data-theme="light"] {
+            --bg-main: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-cyber: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --neon-cyan: #0891B2;
+            --neon-amber: #D97706;
+            --neon-green: #059669;
+            --border-color: #CBD5E1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-top: 90px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ⚡ MAIN NAVBAR ARCHITECTURE */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .highlight {
+            color: var(--neon-cyan);
+        }
+
+        .pro-tag {
+            background: var(--neon-amber);
+            color: #000;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+            font-weight: 800;
+        }
+
+        .header-right-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-anchor {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            background: var(--bg-cyber);
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-anchor:hover {
+            color: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+        }
+
+        .highlight-quiz-tab {
+            background: var(--neon-amber);
+            color: #000 !important;
+            font-weight: 800;
+            border: none;
+        }
+
+        .hamburger-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1100;
+        }
+
+        .hamburger-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                padding-top: 80px;
+            }
+
+            .hamburger-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 55px;
+                right: -20px;
+                width: calc(100% + 40px);
+                background: var(--bg-card);
+                border-bottom: 2px solid var(--border-color);
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+                display: none;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-anchor {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* GRID LAYOUT ARCHITECTURE */
+        .syllabus-page-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+            align-items: start;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .syllabus-page-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* LEFT SIDEBAR STACK */
+        .syllabus-preview-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky;
+            top: 110px;
+        }
+
+        @media (max-width: 968px) {
+            .syllabus-preview-sidebar {
+                position: static;
+            }
+        }
+
+        .card-image-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .card-image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .side-meta-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .quick-index-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--neon-amber);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .quick-links-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quick-links-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .hacker-terminal-badge {
+            background: #000;
+            color: #00FF00;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            text-align: center;
+            border: 1px solid #00FF00;
+        }
+
+        /* RIGHT PANEL: POWER SYSTEM DATA CARDS */
+        .matrix-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        @media (max-width: 480px) {
+            .matrix-card {
+                padding: 25px 20px;
+            }
+        }
+
+        .track-index {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .syllabus-main-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.25;
+        }
+
+        .syllabus-description-text {
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            text-align: justify;
+        }
+
+        /* PROFESSIONAL CORE DATA SECTIONS */
+        .deep-block {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Force clean page breaks during PDF compilation */
+        .pdf-page-block {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .section-heading {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--neon-cyan);
+            margin-bottom: 18px;
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 18px 0 8px 0;
+            color: var(--text-primary);
+        }
+
+        .cyber-box {
+            background: var(--bg-cyber);
+            border: 1px dashed var(--border-color);
+            padding: 22px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        /* Q&A LAB DESIGN */
+        .qa-wrapper {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .qa-node {
+            background: rgba(6, 182, 212, 0.03);
+            border-left: 4px solid var(--neon-cyan);
+            padding: 18px;
+            border-radius: 0 8px 8px 0;
+            border: 1px solid rgba(51, 65, 85, 0.4);
+            border-left: 4px solid var(--neon-cyan);
+        }
+
+        .qa-question {
+            font-weight: 800;
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .qa-answer {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .telemetry-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .telemetry-list li {
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .telemetry-list li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: var(--neon-amber);
+        }
+
+        .download-trigger-container {
+            margin-top: 45px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(19, 26, 44, 0.8) 100%);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid var(--neon-green);
+        }
+
+        .document-feature-grid {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .green-glow-btn {
+            display: block;
+            width: 100%;
+            background: var(--neon-green);
+            color: #fff;
+            padding: 16px 24px;
+            font-size: 1rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .green-glow-btn:hover {
+            transform: translateY(-2px);
+            background: #0d9668;
+        }
+
+        .main-footer {
+            margin-top: 60px;
+            padding: 30px 0;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* 🔥 DYNAMIC CSS ENGINE DESIGNED SPECIFICALLY FOR THE html2pdf EXPORT ENGINE */
+        .pdf-mobile-optimized-layout {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            max-width: 680px !important;
+            /* Perfect width for Mobile A4 scaling */
+            margin: 0 auto !important;
+            padding: 10px !important;
+            background-color: #0B0F19 !important;
+        }
+
+        .pdf-mobile-optimized-layout .matrix-card {
+            padding: 20px !important;
+            border: none !important;
+            background-color: #131A2C !important;
+        }
+
+        .pdf-mobile-optimized-layout .syllabus-page-layout {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+        }
+
+        .pdf-mobile-optimized-layout .syllabus-preview-sidebar {
+            display: none !important;
+            /* Hide Sidebar links inside PDF to save space */
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header" role="banner">
+        <div class="container navbar">
+            <div class="logo" onclick="window.location.href='../../index.html';">
+                <span class="bolt-glow">⚡</span> ITI <span class="highlight">MASTER</span> <span
+                    class="pro-tag">FREE</span>
+            </div>
+
+            <div class="header-right-controls">
+                <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme">🌓
+                    MODE</button>
+                <button type="button" class="hamburger-toggle" id="menu-hamburger-trigger" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+            <nav class="nav-links" id="application-nav-panel">
+                <a href="../../index.html#explore-deck" class="nav-anchor">Fundamentals</a>
+                <a href="../../index.html#components-deck" class="nav-anchor">Components</a>
+                <a href="../../index.html#instruments-deck" class="nav-anchor">Instruments</a>
+                <a href="../../index.html#wiring-deck" class="nav-anchor">Wiring</a>
+                <a href="../../index.html#earthing-deck" class="nav-anchor">Earthing</a>
+                <a href="../../index.html#motor-control-deck" class="nav-anchor">Starters</a>
+                <a href="../../index.html#three-phase-deck" class="nav-anchor">3-Phase</a>
+                <a href="../../index.html#industrial-deck" class="nav-anchor">Industrial</a>
+                <a href="../../index.html#maintenance-deck" class="nav-anchor">Faults</a>
+                <a href="../../index.html#solar-deck" class="nav-anchor">Solar</a>
+                <a href="../../index.html#automation-deck" class="nav-anchor">Automation</a>
+                <a href="../../index.html#quiz-lab" class="nav-anchor highlight-quiz-tab">Launch Live Quiz</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" id="master-app-wrapper">
+        <div class="syllabus-page-layout">
+
+            <div class="syllabus-preview-sidebar" id="sidebar-panel">
+                <div class="card-image-box">
+                    <img src="../images/electron.png"
+                        alt="Electron Subatomic Particle Negative Charge Flow Orbital Shell Diagram">
+                    <p style="font-size:0.85rem; color: var(--text-secondary); margin-top:12px; font-weight:700;">Atomic
+                        Orbital Architecture</p>
+                </div>
+
+                <div class="side-meta-card">
+                    <div class="quick-index-title">📌 Technical Index Modules</div>
+                    <ul class="quick-links-list">
+                        <li><a href="#sec-1">▶ 1. Core Quantum Metric</a></li>
+                        <li><a href="#sec-2">▶ 2. Valence & Conduction</a></li>
+                        <li><a href="#sec-3">▶ 3. Industrial Use Cases</a></li>
+                        <li><a href="#sec-4">▶ 4. Telemetry & Exam Lab</a></li>
+                    </ul>
+                </div>
+
+                <div class="hacker-terminal-badge">
+                    SYSTEM_NODE // POTENTIAL_DRIVEN_DRIFT_VELOCITY
+                </div>
+            </div>
+
+            <div class="syllabus-details-content" id="core-content-deck">
+                <article class="matrix-card">
+                    <span class="track-index">TECHNICAL BLUEPRINT // ELECTRICIAN THEORY ADVANCED</span>
+
+                    <h1 class="syllabus-main-title">Electron: संरचना, कार्य सिद्धांत एवं औद्योगिक अनुप्रयोग</h1>
+
+                    <p class="syllabus-description-text">
+                        इलेक्ट्रिकल इंजीनियरिंग और विद्युत सिद्धांतों के अंतर्गत, <strong>इलेक्ट्रॉन (Electron)
+                            ब्रह्मांड का एक अपरिवर्तनीय मौलिक उप-परमाणु कण (Elementary Subatomic Particle) है</strong>।
+                        यह किसी भी तत्व के परमाणु के केंद्र में स्थित भारी न्यूक्लियस (प्रोटॉन और न्यूट्रॉन) के चारों ओर
+                        निश्चित ऊर्जा स्तरों वाली कक्षाओं (Orbits/Shells) में अत्यंत तीव्र गति से परिक्रमा करता है।
+                        संपूर्ण विद्युत चालकता, अर्धचालक क्रियाएं और विद्युत चुंबकीय क्षेत्र इसी सूक्ष्म कण के विस्थापन
+                        पर आधारित हैं।
+                    </p>
+
+                    <div class="deep-block pdf-page-block" id="sec-1">
+                        <h2 class="section-heading">1. Discovery and Mathematical Constants (खोज एवं गणितीय स्थिरांक)
+                        </h2>
+                        <p class="syllabus-description-text">
+                            इलेक्ट्रॉन की खोज <strong>सन 1897 में महान वैज्ञानिक Sir J.J. Thomson ने कैथोड किरण ट्यूब
+                                (Cathode Ray Tube) प्रयोग</strong> की सहायता से की थी। यह लेप्टान (Lepton) परिवार का
+                            सदस्य है, जिसका कोई आंतरिक उप-घटक नहीं होता।
+                        </p>
+                        <div class="cyber-box">
+                            <div class="subsection-title">A. Absolute Electrical Charge (विद्युत आवेश)</div>
+                            <p
+                                style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 12px; font-family: 'JetBrains Mono', monospace;">
+                                -1.6022 × 10⁻¹⁹ Coulomb (ऋणात्मक आवेश)
+                            </p>
+                            <div class="subsection-title">B. Rest Mass Configuration (स्थिर द्रव्यमान)</div>
+                            <p
+                                style="color: var(--text-secondary); font-size: 0.95rem; font-family: 'JetBrains Mono', monospace;">
+                                9.1093 × 10⁻³¹ kg
+                            </p>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 8px;">
+                                यह द्रव्यमान प्रोटॉन की तुलना में लगभग <strong>1836 गुना कम</strong> है। यही कारण है कि
+                                बाहरी विद्युत वाहक बल (EMF) आरोपित होने पर भारी नाभिक स्थिर रहता है और हल्का इलेक्ट्रॉन
+                                तीव्रता से प्रवाहित हो जाता है।
+                            </p>
+                        </div>
+
+                        <div class="qa-wrapper">
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 1. विद्युत धारा के प्रवाह में केवल इलेक्ट्रॉन ही गति
+                                    क्यों करते हैं, प्रोटॉन क्यों नहीं?</div>
+                                <div class="qa-answer">उत्तर: प्रोटॉन का द्रव्यमान इलेक्ट्रॉन से 1836 गुना अधिक भारी
+                                    होता है और वह नाभिक के भीतर प्रबल नाभिकीय बल (Strong Nuclear Force) से बंधा रहता है।
+                                    इसके विपरीत, इलेक्ट्रॉन अत्यधिक हल्के होने के कारण बहुत कम वोल्टेज (EMF) पर भी अपनी
+                                    कक्षा से विस्थापित होकर प्रवाहित होने में सक्षम होते हैं।</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-2">
+                        <h2 class="section-heading">2. Valence Shell & Conduction Theory (संयोजकता एवं मुक्त इलेक्ट्रॉन
+                            सिद्धांत)</h2>
+                        <p class="syllabus-description-text">
+                            परमाणु की सबसे बाहरी कक्षा को <strong>Valence Shell (संयोजकता कवच)</strong> और उसमें उपस्थित
+                            इलेक्ट्रॉनों को वैलेंस इलेक्ट्रॉन कहा जाता है। जब इन बाह्य इलेक्ट्रॉनों को न्यूनतम बाह्य
+                            थर्मल या इलेक्ट्रिकल ऊर्जा प्राप्त होती है, तो ये नाभिकीय आकर्षण बल को तोड़कर परमाणु से पृथक
+                            हो जाते हैं। इन मुक्त कणों को <strong>Free Electrons (मुक्त इलेक्ट्रॉन)</strong> कहा जाता
+                            है।
+                        </p>
+                        <div class="cyber-box" style="border-left: 4px solid var(--neon-amber);">
+                            <strong>Industrial Conductivity Rule:</strong> किसी भी धातु की विद्युत चालकता (Conductivity)
+                            उसके भीतर उपस्थित 'फ्री इलेक्ट्रॉनों' की सघनता पर निर्भर करती है। तांबा (Copper),
+                            एल्युमिनियम (Aluminum) और चांदी (Silver) के संयोजी कवच में मुक्त इलेक्ट्रॉन प्रचुर मात्रा
+                            में उपलब्ध होते हैं, जिससे ये उत्तम चालक (Best Conductors) बनते हैं।
+                        </div>
+
+                        <div class="qa-wrapper">
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 2. वैलेंस इलेक्ट्रॉन और फ्री इलेक्ट्रॉन के मध्य मूल
+                                    तकनीकी अंतर क्या है?</div>
+                                <div class="qa-answer">उत्तर: वैलेंस इलेक्ट्रॉन परमाणु की अंतिम कक्षा का हिस्सा होते हैं
+                                    और नाभिकीय बल के नियंत्रण में रहते हैं। जब इन्हें बाहरी ऊर्जा देकर परमाणु से पूरी
+                                    तरह से आजाद कर दिया जाता है, तब ये धातु के क्रिस्टल लैटिस में स्वतंत्र रूप से विचरण
+                                    करते हैं और 'फ्री इलेक्ट्रॉन' कहलाते हैं। केवल फ्री इलेक्ट्रॉन ही करंट फ्लो के लिए
+                                    जिम्मेदार होते हैं।</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-3">
+                        <h2 class="section-heading">3. Technical Working Principle (3 Multi-Industry Examples)</h2>
+
+                        <div class="cyber-box">
+                            <strong style="color: #fff; font-size:1.05rem; display:block; margin-bottom:6px;">उदाहरण 1:
+                                पावर केबल चालकता (Conductor Drift Mechanism)</strong>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                कॉपर वायर को पानी से भरे पाइप की भांति समझा जा सकता है। जब तक पाइप पर पंप द्वारा प्रेशर
+                                नहीं लगाया जाता, पानी प्रवाहित नहीं होता। इसी प्रकार, जब केबल के दोनों सिरों पर बैटरी या
+                                अल्टरनेटर द्वारा <strong>विद्युत वाहक बल (Voltage/EMF)</strong> लगाया जाता है, तो तार के
+                                भीतर उपस्थित मुक्त इलेक्ट्रॉन एक निश्चित दिशा (ऋण से धन टर्मिनल) में ड्रिफ्ट करने लगते
+                                हैं। इसी सामूहिक प्रवाह को विद्युत धारा (Electric Current) कहा जाता है।
+                            </p>
+                        </div>
+
+                        <div class="cyber-box">
+                            <strong style="color: #fff; font-size:1.05rem; display:block; margin-bottom:6px;">उदाहरण 2:
+                                इंडस्ट्रियल स्विच गियर ऑपरेशन (Circuit Loop Continuity)</strong>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                जब कोई सर्किट ब्रेकर या स्विच 'ओपन' स्थिति में होता है, तो कंडक्टरों के बीच वायु अंतराल
+                                (Air Gap) आ जाता है। हवा का उच्च प्रतिरोधी माध्यम इलेक्ट्रॉनों के प्रवाह पथ को बाधित कर
+                                देता है। स्विच को <strong>'ON'</strong> करते ही धातु के टर्मिनल आपस में भौतिक संपर्क
+                                बनाते हैं, जिससे बंद लूप (Closed Circuit) पूर्ण हो जाता है और ईएमएफ के दबाव से संपूर्ण
+                                लाइन में इलेक्ट्रॉनों का प्रवाह तत्क्षण प्रारंभ हो जाता है।
+                            </p>
+                        </div>
+
+                        <div class="cyber-box">
+                            <strong style="color: #fff; font-size:1.05rem; display:block; margin-bottom:6px;">उदाहरण 3:
+                                रिन्यूएबल सोलर ग्रिड (Photovoltaic Conversion)</strong>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                सौर ऊर्जा में सिलिकॉन सेमीकंडक्टर वेफर्स का उपयोग होता है। जब सूर्य की किरणें (फोटॉन
+                                पैकेट्स) सोलर प्लेट की सतह पर प्रहार करती हैं, तो सिलिकॉन के इलेक्ट्रॉन उस ऊर्जा को
+                                अवशोषित कर लेते हैं। ऊर्जा का स्तर बढ़ते ही वे वैलेंस बैंड से जंप करके कंडक्शन बैंड में
+                                चले जाते हैं, जिससे वे ग्रिड सर्किट में डीसी करंट के रूप में प्रवाहित होने लगते हैं।
+                            </p>
+                        </div>
+
+                        <div class="qa-wrapper">
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 3. क्लोज्ड सर्किट में स्विच ऑन करते ही लोड (जैसे लैंप)
+                                    तुरंत चालू क्यों हो जाता है, जबकि इलेक्ट्रॉनों की अपनी गति धीमी होती है?</div>
+                                <div class="qa-answer">उत्तर: ऐसा 'इलेक्ट्रॉनिक पल्स चेन रिएक्शन' के कारण होता है।
+                                    यद्यपि एक व्यक्तिगत इलेक्ट्रॉन की अपनी गति (Drift Velocity) धीमी होती है, परंतु जैसे
+                                    ही वोल्टेज लगाया जाता है, केबल के सभी इलेक्ट्रॉन एक दूसरे को विद्युत चुंबकीय तरंग की
+                                    गति (प्रकाश की गति ~300,000 किमी/सेकंड) से धक्का देते हैं, जिससे लोड तुरंत क्रियाशील
+                                    हो जाता है।</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-4">
+                        <h2 class="section-heading">4. Advanced Substation Telemetry Matrix</h2>
+                        <div class="cyber-box">
+                            <ul class="telemetry-list">
+                                <li><strong>Actual Displacement Vector:</strong> इलेक्ट्रॉन सदैव ऋणात्मक (-) टर्मिनल से
+                                    उत्सर्जित होकर धनात्मक (+) टर्मिनल की ओर आकर्षित होते हैं। किंतु वैश्विक मानक के
+                                    अनुसार पारंपरिक धारा (Conventional Current) की दिशा सदैव विपरीत (+ से -) मानी जाती
+                                    है।</li>
+                                <li><strong>Drift Speed Factor:</strong> सामान्य परिचालन तापमान पर तांबे के तार में
+                                    इलेक्ट्रॉन की ड्रिफ्ट वेलोसिटी मात्र कुछ मिलीमीटर प्रति सेकंड होती है, जबकि ऊर्जा
+                                    संचरण दर प्रकाश की गति के समतुल्य होती है।</li>
+                            </ul>
+                        </div>
+
+                        <div class="qa-wrapper">
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 4. पारंपरिक धारा (Conventional Current) और वास्तविक
+                                    इलेक्ट्रॉनिक धारा की दिशा में क्या विरोधाभास है?</div>
+                                <div class="qa-answer">उत्तर: वास्तविक इलेक्ट्रॉनिक धारा ऋणात्मक से धनात्मक (- से +)
+                                    दिशा में प्रवाहित होती है, जबकि प्राचीन स्थापित मान्यताओं के अनुसार पारंपरिक धारा की
+                                    दिशा धनात्मक से ऋणात्मक (+ से -) मानी जाती है। गणनाओं में भ्रम से बचने के लिए आज भी
+                                    सर्किट आरेखों में पारंपरिक दिशा का ही उपयोग किया जाता है।</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="download-trigger-container pdf-page-block" id="ignore-pdf-render">
+                        <div class="quick-index-title" style="color: var(--neon-green);">📦 Technical Documentation
+                            Vault</div>
+                        <div class="document-feature-grid">
+                            यह प्रमाणित मैनुअल आपके कोर इलेक्ट्रिकल इंटरव्यू, सबस्टेशन वाइवा, और सरकारी तकनीकी परीक्षाओं
+                            (जैसे रेलवे लोको पायलट, डीआरडीओ, स्टेट इलेक्ट्रिसिटी बोर्ड) में 100% सफलता प्राप्त करने हेतु
+                            संकलित किया गया है। इसके ऑफलाइन पीडीएफ डेटा मेट्रिक्स में संपूर्ण स्थिरांक, समीकरण और
+                            प्रश्नोत्तर लैब सम्मिलित हैं।
+                        </div>
+
+                        <button type="button" class="green-glow-btn" id="pdf-download-trigger">
+                            🚀 EXPORT DIRECT COMPREHENSIVE PDF NOW
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 ITI Electrician Master Academy Registry. Secure Infrastructure Channels Configured for
+                Android APK Deployments.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme setup
+            const savedCacheThemeMode = localStorage.getItem('CONSOLE_THEME_CACHE') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedCacheThemeMode);
+
+            // Toggle switch logic
+            const localThemeBtnNode = document.getElementById('theme-toggle-btn');
+            if (localThemeBtnNode) {
+                localThemeBtnNode.addEventListener('click', () => {
+                    const htmlElement = document.documentElement;
+                    if (htmlElement.getAttribute('data-theme') === 'dark') {
+                        htmlElement.setAttribute('data-theme', 'light');
+                        localStorage.setItem('CONSOLE_THEME_CACHE', 'light');
+                    } else {
+                        htmlElement.setAttribute('data-theme', 'dark');
+                        localStorage.setItem('CONSOLE_THEME_CACHE', 'dark');
+                    }
+                });
+            }
+
+            // MOBILE APK HAMBURGER MENU INTERACTIVE LOOP
+            const hamburgerTrigger = document.getElementById('menu-hamburger-trigger');
+            const navPanel = document.getElementById('application-nav-panel');
+
+            if (hamburgerTrigger && navPanel) {
+                hamburgerTrigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    hamburgerTrigger.classList.toggle('active');
+                    navPanel.classList.toggle('show');
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!navPanel.contains(e.target) && !hamburgerTrigger.contains(e.target)) {
+                        hamburgerTrigger.classList.remove('active');
+                        navPanel.classList.remove('show');
+                    }
+                });
+            }
+
+            // 🔥 DYNAMIC RUNTIME CONVERSION ENGINE FOR HIGH-DENSITY MOBILE NETIVE PDFs
+            const downloadBtn = document.getElementById('pdf-download-trigger');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', () => {
+                    const wrapper = document.getElementById('master-app-wrapper');
+                    const ignoreBtnBlock = document.getElementById('ignore-pdf-render');
+
+                    // 1. Ingress Mode: Hide the non-render action card
+                    if (ignoreBtnBlock) ignoreBtnBlock.style.display = 'none';
+
+                    // 2. Force Mobile Stack Transformation onto the DOM container for perfect PDF scale geometry
+                    wrapper.classList.add('pdf-mobile-optimized-layout');
+
+                    // 3. Set compilation attributes
+                    const options = {
+                        margin: [8, 8, 8, 8],
+                        filename: 'Electron_Technical_Industrial_Manual.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: {
+                            scale: 2, // Double resolution density for clean text zooming
+                            useCORS: true,
+                            backgroundColor: '#0B0F19', // Fixes light spots by locking original cyber background
+                            scrollY: 0
+                        },
+                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    };
+
+                    // 4. Compile raw binary pipeline directly into client storage
+                    html2pdf().set(options).from(wrapper).save().then(() => {
+                        // 5. Egress Mode: Structural restoration of the DOM layer post download completion
+                        wrapper.classList.remove('pdf-mobile-optimized-layout');
+                        if (ignoreBtnBlock) ignoreBtnBlock.style.display = 'block';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

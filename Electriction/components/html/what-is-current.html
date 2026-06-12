@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>What is Electric Current? Flow Intensity, Mathematical Formulas & Q&A | ITI Master</title>
+    <meta name="description"
+        content="Master the concepts of Electric Current (I), Ampere definition, Ohm's Law derivation, AC/DC differentiation, and Ammeter series integration. Professional ITI Electrician Theory Hub.">
+    <meta name="keywords"
+        content="Electric Current, Ampere, Current Formula, Ohm's Law, Alternating Current, Direct Current, Ammeter Series, Electrical Engineering Hindi">
+    <meta name="robots" content="index, follow">
+    <link class="seo-canonical" rel="canonical" href="https://yourdomain.com/components/html/current.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-main: #0B0F19;
+            --bg-card: #131A2C;
+            --bg-cyber: #1E293B;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --neon-cyan: #06B6D4;
+            --neon-amber: #F59E0B;
+            --neon-green: #10B981;
+            --neon-red: #EF4444;
+            --border-color: #334155;
+        }
+
+        [data-theme="light"] {
+            --bg-main: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-cyber: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --neon-cyan: #0891B2;
+            --neon-amber: #D97706;
+            --neon-green: #059669;
+            --neon-red: #DC2626;
+            --border-color: #CBD5E1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-top: 90px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ⚡ MAIN NAVBAR ARCHITECTURE */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .highlight {
+            color: var(--neon-cyan);
+        }
+
+        .pro-tag {
+            background: var(--neon-amber);
+            color: #000;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+            font-weight: 800;
+        }
+
+        .header-right-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-anchor {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            background: var(--bg-cyber);
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-anchor:hover {
+            color: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+        }
+
+        .highlight-quiz-tab {
+            background: var(--neon-amber);
+            color: #000 !important;
+            font-weight: 800;
+            border: none;
+        }
+
+        .hamburger-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1100;
+        }
+
+        .hamburger-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                padding-top: 80px;
+            }
+
+            .hamburger-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 55px;
+                right: -20px;
+                width: calc(100% + 40px);
+                background: var(--bg-card);
+                border-bottom: 2px solid var(--border-color);
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+                display: none;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-anchor {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* GRID LAYOUT ARCHITECTURE */
+        .syllabus-page-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+            align-items: start;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .syllabus-page-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* LEFT SIDEBAR STACK */
+        .syllabus-preview-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky;
+            top: 110px;
+        }
+
+        @media (max-width: 968px) {
+            .syllabus-preview-sidebar {
+                position: static;
+            }
+        }
+
+        .card-image-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .card-image-box .vector-icon {
+            font-size: 4rem;
+            color: var(--neon-cyan);
+            margin-bottom: 10px;
+        }
+
+        .side-meta-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .quick-index-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--neon-amber);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .quick-links-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quick-links-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .hacker-terminal-badge {
+            background: #000;
+            color: #00FF00;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            text-align: center;
+            border: 1px solid #00FF00;
+        }
+
+        /* RIGHT PANEL: POWER SYSTEM DATA CARDS */
+        .matrix-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        @media (max-width: 480px) {
+            .matrix-card {
+                padding: 25px 20px;
+            }
+        }
+
+        .track-index {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .syllabus-main-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.25;
+        }
+
+        .syllabus-description-text {
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            text-align: justify;
+        }
+
+        /* PROFESSIONAL CORE DATA SECTIONS */
+        .deep-block {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .pdf-page-block {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .section-heading {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--neon-cyan);
+            margin-bottom: 18px;
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 18px 0 8px 0;
+            color: var(--text-primary);
+        }
+
+        .cyber-box {
+            background: var(--bg-cyber);
+            border: 1px dashed var(--border-color);
+            padding: 22px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        /* Q&A LAB DESIGN */
+        .qa-wrapper {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .qa-node {
+            background: rgba(6, 182, 212, 0.03);
+            border-left: 4px solid var(--neon-cyan);
+            padding: 18px;
+            border-radius: 0 8px 8px 0;
+            border: 1px solid rgba(51, 65, 85, 0.4);
+        }
+
+        .qa-question {
+            font-weight: 800;
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .qa-answer {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* MCB LAB EXAM MODULE */
+        .mcq-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .mcq-card {
+            background: var(--bg-cyber);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .mcq-title {
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .mcq-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .mcq-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .mcq-opt {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .mcq-opt.correct-badge {
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+            background: rgba(16, 185, 129, 0.05);
+            font-weight: 700;
+        }
+
+        .telemetry-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .telemetry-list li {
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .telemetry-list li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: var(--neon-amber);
+        }
+
+        .download-trigger-container {
+            margin-top: 45px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(19, 26, 44, 0.8) 100%);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid var(--neon-green);
+        }
+
+        .document-feature-grid {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .green-glow-btn {
+            display: block;
+            width: 100%;
+            background: var(--neon-green);
+            color: #fff;
+            padding: 16px 24px;
+            font-size: 1rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .green-glow-btn:hover {
+            transform: translateY(-2px);
+            background: #0d9668;
+        }
+
+        .main-footer {
+            margin-top: 60px;
+            padding: 30px 0;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* 🔥 DYNAMIC CSS ENGINE FOR THE html2pdf EXPORT ENGINE */
+        .pdf-mobile-optimized-layout {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            max-width: 680px !important;
+            margin: 0 auto !important;
+            padding: 10px !important;
+            background-color: #0B0F19 !important;
+        }
+
+        .pdf-mobile-optimized-layout .matrix-card {
+            padding: 20px !important;
+            border: none !important;
+            background-color: #131A2C !important;
+        }
+
+        .pdf-mobile-optimized-layout .syllabus-page-layout {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+        }
+
+        .pdf-mobile-optimized-layout .syllabus-preview-sidebar {
+            display: none !important;
+        }
+
+        /* Split Table for Voltage/Current Grid */
+        .split-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .split-table th,
+        .split-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+        }
+
+        .split-table th {
+            background: var(--bg-cyber);
+            color: var(--neon-cyan);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header" role="banner">
+        <div class="container navbar">
+            <div class="logo" onclick="window.location.href='../../index.html';">
+                <span class="bolt-glow">⚡</span> ITI <span class="highlight">MASTER</span> <span
+                    class="pro-tag">FREE</span>
+            </div>
+
+            <div class="header-right-controls">
+                <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme">🌓
+                    MODE</button>
+                <button type="button" class="hamburger-toggle" id="menu-hamburger-trigger" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+            <nav class="nav-links" id="application-nav-panel">
+                <a href="../../index.html#explore-deck" class="nav-anchor">Fundamentals</a>
+                <a href="../../index.html#components-deck" class="nav-anchor">Components</a>
+                <a href="../../index.html#instruments-deck" class="nav-anchor">Instruments</a>
+                <a href="../../index.html#wiring-deck" class="nav-anchor">Wiring</a>
+                <a href="../../index.html#earthing-deck" class="nav-anchor">Earthing</a>
+                <a href="../../index.html#motor-control-deck" class="nav-anchor">Starters</a>
+                <a href="../../index.html#three-phase-deck" class="nav-anchor">3-Phase</a>
+                <a href="../../index.html#industrial-deck" class="nav-anchor">Industrial</a>
+                <a href="../../index.html#maintenance-deck" class="nav-anchor">Faults</a>
+                <a href="../../index.html#solar-deck" class="nav-anchor">Solar</a>
+                <a href="../../index.html#automation-deck" class="nav-anchor">Automation</a>
+                <a href="../../index.html#quiz-lab" class="nav-anchor highlight-quiz-tab">Launch Live Quiz</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" id="master-app-wrapper">
+        <div class="syllabus-page-layout">
+
+            <div class="syllabus-preview-sidebar" id="sidebar-panel">
+                <div class="card-image-box">
+                    <div class="vector-icon">🌊</div>
+                    <p style="font-size:0.85rem; color: var(--text-secondary); margin-top:12px; font-weight:700;">
+                        Electron Flow Intensity Model</p>
+                </div>
+
+                <div class="side-meta-card">
+                    <div class="quick-index-title">📌 Technical Index Modules</div>
+                    <ul class="quick-links-list">
+                        <li><a href="#sec-1">▶ 1. Simple Definition</a></li>
+                        <li><a href="#sec-2">▶ 2. Mathematical Equations</a></li>
+                        <li><a href="#sec-3">▶ 3. Types and Metrics</a></li>
+                        <li><a href="#sec-4">▶ 4. Industrial Q&A Lab</a></li>
+                        <li><a href="#sec-5">▶ 5. Core MCQ Testing</a></li>
+                    </ul>
+                </div>
+
+                <div class="hacker-terminal-badge">
+                    SYSTEM_NODE // AMMPERE_DYNAMICS_CORE
+                </div>
+            </div>
+
+            <div class="syllabus-details-content" id="core-content-deck">
+                <article class="matrix-card">
+                    <span class="track-index">TECHNICAL BLUEPRINT // ELECTRICIAN THEORY ADVANCED</span>
+
+                    <h1 class="syllabus-main-title">Electric Current (I): विद्युत धारा का संपूर्ण कार्य सिद्धांत</h1>
+
+                    <p class="syllabus-description-text">
+                        इलेक्ट्रिकल इंजीनियरिंग की रीढ़, <strong>विद्युत धारा (Electric Current) किसी बंद परिपथ (Closed
+                            Circuit) में आवेशित कणों, मुख्य रूप से मुक्त इलेक्ट्रॉनों (Free Electrons) के निरंतर प्रवाह
+                            की दर है</strong>। जब तक मुक्त इलेक्ट्रॉन किसी निश्चित दिशा में संरेखित होकर गति नहीं करते,
+                        तब तक ऊर्जा का संचरण संभव नहीं होता। चालकों का आंतरिक आणविक व्यवहार करंट के परिमाण को सीधे
+                        प्रभावित करता है।
+                    </p>
+
+                    <div class="deep-block pdf-page-block" id="sec-1">
+                        <h2 class="section-heading">1. Core Definition & Real-World Mechanism (मूल परिभाषा एवं
+                            व्यावहारिक मॉडल)</h2>
+
+                        <div class="cyber-box">
+                            <div class="subsection-title">English Documentation</div>
+                            <p
+                                style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 12px; font-family: 'JetBrains Mono', monospace;">
+                                Electric Current is the definitive rate of flow of electric charge (primarily free
+                                electrons) through a cross-sectional conductor area over time.
+                            </p>
+                            <div class="subsection-title">Hinglish Concept Alignment</div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Current ka seedha matlab hai kisi wire ya conductor ke andar free electrons ka ek linear
+                                direction me behna (flow hona)। Jab electrons external pressure (EMF) ke prabhav se ek
+                                terminal se dusri jagah displace hote hain, tab electrical energy transfer hoti hai aur
+                                current circuit me establish hota hai।
+                            </p>
+                        </div>
+
+                        <div class="cyber-box" style="border-left: 4px solid var(--neon-cyan);">
+                            <strong>Real-Life Analogy (Pipe & Water Hydraulic Concept):</strong>
+                            <p style="margin-top: 6px; font-size:0.95rem; color: var(--text-secondary);">
+                                इसे पानी के एक बंद पाइप नेटवर्क की तरह समझें। जैसे पाइप चालक (Wire) के समान है, पानी की
+                                बूंदें इलेक्ट्रॉनों (Electrons) के समतुल्य हैं, और पानी का बहाव ही विद्युत धारा
+                                (Current) है। पंप द्वारा लगाया गया प्रेशर वोल्टेज (Voltage) कहलाता है। जितना उच्च पंप का
+                                दबाव होगा, पानी उतनी ही तीव्रता से बहेगा। ठीक उसी प्रकार, जितना अधिक वोल्टेज होगा, तार
+                                से उतने ही प्रचुर मात्रा में इलेक्ट्रॉन प्रति सेकंड गुजरेंगे, जिससे करंट का मान बढ़ेगा।
+                            </p>
+                        </div>
+
+                        <div class="cyber-box">
+                            <div class="subsection-title">⚠️ Current Flow Conditions (धारा प्रवाह की अनिवार्य शर्तें)
+                            </div>
+                            <ul class="telemetry-list">
+                                <li><strong>Closed Loop Path:</strong> परिपथ पूर्णतः बंद (Complete Circuit) होना चाहिए।
+                                    हवा या किसी अन्य इंसुलेटर के कारण ओपन होने पर करंट शून्य हो जाएगा।</li>
+                                <li><strong>Potential Difference (Voltage):</strong> इलेक्ट्रॉनों को धक्का देने के लिए
+                                    बैटरी या अल्टरनेटर का विद्युत वाहक बल (EMF) उपलब्ध होना अनिवार्य है।</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-2">
+                        <h2 class="section-heading">2. Mathematical Expressions & Identity Symbols (गणितीय सूत्र एवं
+                            प्रतीक)</h2>
+                        <p class="syllabus-description-text">
+                            विद्युत सिद्धांतों की गणना और सबस्टेशन ग्रिड्स की लोडिंग को मापने के लिए वैज्ञानिक मानकों के
+                            अनुसार प्रतीकों और समीकरणों का निर्धारण किया गया है:
+                        </p>
+
+                        <div class="cyber-box">
+                            <ul class="telemetry-list" style="font-family: 'JetBrains Mono', monospace;">
+                                <li><strong>Standard Symbol:</strong> I (Intensity of Current)</li>
+                                <li><strong>SI Measurement Unit:</strong> Ampere (A) - Named in honor of French
+                                    physicist André-Marie Ampère.</li>
+                            </ul>
+
+                            <div class="subsection-title" style="margin-top:15px;">A. Base Fundamental Formula</div>
+                            <p
+                                style="color: var(--text-secondary); font-size: 1.1rem; font-family: 'JetBrains Mono', monospace; background: var(--bg-main); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); text-align: center; margin: 8px 0;">
+                                I = Q / t
+                            </p>
+                            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                                जहाँ <strong>I</strong> = करंट (Ampere में), <strong>Q</strong> = कुल आवेश/चार्ज
+                                (Coulomb में), और <strong>t</strong> = समय (Seconds में)।
+                            </p>
+
+                            <div class="subsection-title" style="margin-top:15px;">B. Quantum Metrics of 1 Ampere</div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                तकनीकी रूप से, 1 एम्पीयर करंट का अर्थ है कि किसी चालक के क्रॉस-सेक्शनल एरिया से
+                                <strong>प्रति सेकंड 6.25 × 10¹⁸ इलेक्ट्रॉनों का प्रवाह</strong> हो रहा है। व्यावहारिक
+                                क्षेत्र में, यह मान सीधे धारा के परिमाण को दर्शाता है।
+                            </p>
+
+                            <div class="subsection-title" style="margin-top:15px;">C. Ohm's Law Derivation
+                                (इलेक्ट्रिशियन का मुख्य सूत्र)</div>
+                            <p
+                                style="color: var(--text-secondary); font-size: 1.1rem; font-family: 'JetBrains Mono', monospace; background: var(--bg-main); padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); text-align: center; margin: 8px 0;">
+                                I = V / R
+                            </p>
+                            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                                जहाँ <strong>V</strong> = वोल्टेज (Potential Difference), और <strong>R</strong> = सर्किट
+                                का कुल प्रतिरोध (Resistance in Ohms)।
+                            </p>
+                        </div>
+
+                        <div class="qa-wrapper">
+                            <div class="qa-node">
+                                <div class="qa-question">व्यावहारिक न्यूमेरिकल समस्या: यदि किसी औद्योगिक हीटर का हीटिंग
+                                    एलिमेंट 220V की सप्लाई लाइन से जुड़ा है और उसका आंतरिक प्रतिरोध 22Ω है, तो वह लाइन
+                                    से कितना करंट खींचेगा?</div>
+                                <div class="qa-answer">
+                                    <strong>गणना हल:</strong><br>
+                                    दिया गया है: वोल्टेज (V) = 220V, प्रतिरोध (R) = 22Ω<br>
+                                    सूत्रानुसार: I = V / R <br>
+                                    I = 220 / 22 = 10A <br>
+                                    <strong>उत्तर: Heaters Line Current = 10 Ampere (एम्पीयर)</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-3">
+                        <h2 class="section-heading">3. Classifications, Manifestations & Instruments (वर्गीकरण, प्रभाव
+                            एवं मापन यंत्र)</h2>
+                        <p class="syllabus-description-text">
+                            विद्युत धारा को उसके व्यवहार और तरंग रूप (Waveform) के आधार पर दो मुख्य भागों में वर्गीकृत
+                            किया जाता है। चूंकि करंट आंखों से दिखाई नहीं देता, हम केवल इसके भौतिक प्रभावों को मापते हैं।
+                        </p>
+
+                        <div class="cyber-box">
+                            <div class="subsection-title">A. Alternating Current (AC - प्रत्यावर्ती धारा)</div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 8px;">
+                                वह धारा जो समय के साथ अपना परिमाण (Magnitude) और दिशा (Direction) निरंतर परिवर्तित करती
+                                रहती है। भारत में घरेलू डोमेस्टिक ग्रिड की मानक आवृत्ति <strong>230V, 50Hz AC</strong>
+                                होती है।
+                            </p>
+                            <p style="font-size:0.88rem; color: var(--neon-cyan);">उपयोग: पंखा, टीवी, फ्रिज, इंडस्ट्रियल
+                                मोटर्स, एयर कंडीशनर।</p>
+
+                            <div class="subsection-title" style="margin-top:15px;">B. Direct Current (DC - दिष्ट धारा)
+                            </div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 8px;">
+                                वह धारा जो सदैव एक ही स्थिर दिशा में और बिना किसी आवृत्ति (0Hz Frequency) के प्रवाहित
+                                होती है।
+                            </p>
+                            <p style="font-size:0.88rem; color: var(--neon-amber);">स्रोत/उपयोग: लेड-एसिड बैटरी, सोलर
+                                फोटोवोल्टिक पैनल, पावर बैंक, इलेक्ट्रॉनिक माइक्रोचिप्स।</p>
+                        </div>
+
+                        <div class="cyber-box">
+                            <div class="subsection-title">📊 Metrology Instrument Integration (मापन प्रणाली)</div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 10px;">
+                                विद्युत परिपथ में करंट मापने के लिए <strong>Ammeter (एमीटर)</strong> का उपयोग किया जाता
+                                है।
+                            </p>
+                            <ul class="telemetry-list">
+                                <li><strong>Connection Constraint:</strong> एमीटर को सदैव लोड के साथ <strong>Series
+                                        (श्रेणी क्रम)</strong> में जोड़ा जाता है, क्योंकि इसका आंतरिक प्रतिरोध अत्यंत कम
+                                    (शून्य के बराबर) होता है।</li>
+                                <li><strong>Contrast Node:</strong> वोल्टेज मापने वाला Voltmeter सदैव Parallel (समांतर
+                                    क्रम) में लगता है।</li>
+                            </ul>
+                        </div>
+
+                        <div class="cyber-box">
+                            <div class="subsection-title">🔥 Physical Effects of Current (विद्युत धारा के प्रभाव)</div>
+                            <ul class="telemetry-list">
+                                <li><strong>Heating Effect (ऊष्मीय प्रभाव):</strong> जब करंट किसी उच्च प्रतिरोधी तार से
+                                    गुजरता है, तो अणु घर्षण से ऊष्मा उत्पन्न होती है (जैसे इलेक्ट्रिक आयरन, गीजर, हीटर)।
+                                    [सूत्र: $H = I^2Rt$]</li>
+                                <li><strong>Magnetic Effect (चुंबकीय प्रभाव):</strong> किसी भी कोर कॉइल से करंट गुजरने
+                                    पर उसके चारों ओर चुंबकीय फ्लक्स बनता है (जैसे इंडक्शन मोटर, कंट्रोल रिले, पावर
+                                    कॉन्टैक्टर)।</li>
+                                <li><strong>Chemical Effect (रासायनिक प्रभाव):</strong> इलेक्ट्रोलाइट्स में करंट पास
+                                    करने पर रासायनिक अपघटन होता है (जैसे बैटरी चार्जिंग, इलेक्ट्रोप्लेटिंग)।</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-4">
+                        <h2 class="section-heading">4. Technical Voltage vs Current Matrix & Domestic Loading</h2>
+                        <p class="syllabus-description-text">
+                            ग्रिड सबस्टेशन और हाउस वायरिंग डिज़ाइनों में वोल्टेज और करंट के अंतर को समझना तथा वास्तविक
+                            लोड कैलकुलेशन करना अत्यंत महत्वपूर्ण है:
+                        </p>
+
+                        <table class="split-table">
+                            <thead>
+                                <tr>
+                                    <th>तकनीकी मापदंड</th>
+                                    <th>Voltage (V) - विभवांतर</th>
+                                    <th>Current (I) - विद्युत धारा</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>मूल व्यवहार</strong></td>
+                                    <td>यह विद्युत दबाव या बल (Electrical Pressure) है।</td>
+                                    <td>यह इलेक्ट्रॉनों का वास्तविक बहाव (Flow of Electrons) है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>मापन इकाई</strong></td>
+                                    <td>Volt (V)</td>
+                                    <td>Ampere (A)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>कार्य प्रणाली</strong></td>
+                                    <td>यह इलेक्ट्रॉनों को आगे की तरफ पुश (Push) करता है।</td>
+                                    <td>यह दबाव के कारण चालक में मूव (Move) करता है।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="subsection-title" style="margin-top:20px;">🏡 Real Domestic Load Amperage Profiles
+                            (घरेलू उपकरणों का करंट लोड)</div>
+                        <div class="cyber-box">
+                            <ul class="telemetry-list" style="font-family: 'JetBrains Mono', monospace;">
+                                <li>Standard LED Bulb (9W): 9W ÷ 230V ≈ 0.04A Line Current</li>
+                                <li>Ceiling Fan (75W): 75W ÷ 230V ≈ 0.33A Line Current</li>
+                                <li>Industrial Room Heater (1000W): 1000W ÷ 230V ≈ 4.35A Load Current</li>
+                                <li>High Power Geyser Element (2000W): 2000W ÷ 230V ≈ 8.70A Load Current</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-5">
+                        <h2 class="section-heading">5. Industrial Interview Q&A Validation Lab</h2>
+                        <div class="qa-wrapper">
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 1. विद्युत धारा (Electric Current) की मूल परिभाषा क्या
+                                    है?</div>
+                                <div class="qa-answer">उत्तर: किसी चालक तार में से इलेक्ट्रॉनों या आवेशों के बहने की दर
+                                    को विद्युत धारा कहते हैं।</div>
+                            </div>
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 2. विद्युत धारा को मापने की प्रामाणिक इकाई क्या है और
+                                    इसका प्रतीक क्या है?</div>
+                                <div class="qa-answer">उत्तर: इसकी प्रामाणिक इकाई एम्पीयर (Ampere - A) है और इसका गणितीय
+                                    प्रतीक 'I' होता है।</div>
+                            </div>
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 3. एमीटर (Ammeter) को परिपथ में किस क्रम में स्थापित
+                                    किया जाता है और क्यों?</div>
+                                <div class="qa-answer">उत्तर: एमीटर को सदैव श्रेणी क्रम (Series) में जोड़ा जाता है ताकि
+                                    संपूर्ण लोड करंट उसके भीतर से बिना किसी आंतरिक वोल्टेज ड्रॉप के सुरक्षित गुजर सके,
+                                    क्योंकि इसका आंतरिक प्रतिरोध न्यूनतम होता है।</div>
+                            </div>
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 4. अल्टरनेटिंग करंट (AC) और डायरेक्ट करंट (DC) में मुख्य
+                                    परिचालन अंतर क्या है?</div>
+                                <div class="qa-answer">उत्तर: AC करंट समय के साथ अपनी दिशा और परिमाण बदलता रहता है, जबकि
+                                    DC करंट बिना किसी दिशा परिवर्तन के एक समान निरंतर सीधे प्रवाहित होता है।</div>
+                            </div>
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 5. विद्युत धारा के तीन सबसे प्रमुख औद्योगिक प्रभाव कौन
+                                    से हैं?</div>
+                                <div class="qa-answer">उत्तर: 1. ऊष्मीय प्रभाव (Heating), 2. चुंबकीय प्रभाव (Magnetic),
+                                    और 3. रासायनिक प्रभाव (Chemical)।</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-6">
+                        <h2 class="section-heading">6. Core Objective MCQ Verification Deck</h2>
+                        <div class="mcq-stack">
+                            <div class="mcq-card">
+                                <div class="mcq-title">1. विद्युत धारा (Electric Current) को मापने की मानक इकाई क्या है?
+                                </div>
+                                <div class="mcq-options">
+                                    <div class="mcq-opt">A) Volt</div>
+                                    <div class="mcq-opt">B) Watt</div>
+                                    <div class="mcq-opt correct-badge">C) Ampere ✓</div>
+                                    <div class="mcq-opt">D) Ohm</div>
+                                </div>
+                            </div>
+                            <div class="mcq-card">
+                                <div class="mcq-title">2. किसी विद्युत परिपथ आरेख में धारा को प्रदर्शित करने वाला मानक
+                                    प्रतीक कौन सा है?</div>
+                                <div class="mcq-options">
+                                    <div class="mcq-opt">A) V</div>
+                                    <div class="mcq-opt">B) P</div>
+                                    <div class="mcq-opt">C) R</div>
+                                    <div class="mcq-opt correct-badge">D) I ✓</div>
+                                </div>
+                            </div>
+                            <div class="mcq-card">
+                                <div class="mcq-title">3. लाइन करंट को मापने के लिए किस मापन यंत्र का उपयोग अनिवार्य रूप
+                                    से किया जाता है?</div>
+                                <div class="mcq-options">
+                                    <div class="mcq-opt">A) Voltmeter</div>
+                                    <div class="mcq-opt correct-badge">B) Ammeter ✓</div>
+                                    <div class="mcq-opt">C) Wattmeter</div>
+                                    <div class="mcq-opt">D) Megger</div>
+                                </div>
+                            </div>
+                            <div class="mcq-card">
+                                <div class="mcq-title">4. एमीटर (Ammeter) को लोड लाइन के साथ किस संयोजन विन्यास में
+                                    जोड़ा जाना चाहिए?</div>
+                                <div class="mcq-options">
+                                    <div class="mcq-opt">A) Parallel</div>
+                                    <div class="mcq-opt correct-badge">B) Series ✓</div>
+                                    <div class="mcq-opt">C) Both configurations</div>
+                                    <div class="mcq-opt">D) None</div>
+                                </div>
+                            </div>
+                            <div class="mcq-card">
+                                <div class="mcq-title">5. भारतीय पावर ग्रिड कॉर्पोरेशन द्वारा वितरित घरेलू बिजली की
+                                    प्रकृति क्या है?</div>
+                                <div class="mcq-options">
+                                    <div class="mcq-opt">A) DC (दिष्ट धारा)</div>
+                                    <div class="mcq-opt correct-badge">B) AC (प्रत्यावर्ती धारा) ✓</div>
+                                    <div class="mcq-opt">C) Pure Static Battery Grid</div>
+                                    <div class="mcq-opt">D) Solar Direct Output</div>
+                                </div>
+                            </div>
+                            <div class="mcq-card">
+                                <div class="mcq-title">6. रासायनिक सेलों और लेड-एसिड बैटरियों से हमें किस प्रकार की
+                                    विद्युत आपूर्ति प्राप्त होती है?</div>
+                                <div class="mcq-options">
+                                    <div class="mcq-opt">A) AC</div>
+                                    <div class="mcq-opt correct-badge">B) DC ✓</div>
+                                    <div class="mcq-opt">C) Variable Single Phase AC</div>
+                                    <div class="mcq-opt">D) Three Phase Delta Wave</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="download-trigger-container pdf-page-block" id="ignore-pdf-render">
+                        <div class="quick-index-title" style="color: var(--neon-green);">📦 Technical Documentation
+                            Vault</div>
+                        <div class="document-feature-grid">
+                            यह प्रमाणित विद्युत धारा मैनुअल आपके कोर इलेक्ट्रिकल इंटरव्यू, ग्रिड सबस्टेशन वाइवा, और
+                            राष्ट्रीय तकनीकी परीक्षाओं (जैसे RRB ALP, ISRO Technical Assistant, DRDO Ceptam, UPPCL TG2)
+                            में उच्च अंक प्राप्त करने हेतु संकलित किया गया है। इसके ऑफलाइन पीडीएफ डेटा मेट्रिक्स में
+                            संपूर्ण ऊर्जा समीकरण और प्रश्नोत्तर लैब सम्मिलित हैं।
+                        </div>
+
+                        <button type="button" class="green-glow-btn" id="pdf-download-trigger">
+                            🚀 EXPORT DIRECT COMPREHENSIVE PDF NOW
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 ITI Electrician Master Academy Registry. Secure Infrastructure Channels Configured for
+                Android APK Deployments.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme setup
+            const savedCacheThemeMode = localStorage.getItem('CONSOLE_THEME_CACHE') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedCacheThemeMode);
+
+            // Toggle switch logic
+            const localThemeBtnNode = document.getElementById('theme-toggle-btn');
+            if (localThemeBtnNode) {
+                localThemeBtnNode.addEventListener('click', () => {
+                    const htmlElement = document.documentElement;
+                    if (htmlElement.getAttribute('data-theme') === 'dark') {
+                        htmlElement.setAttribute('data-theme', 'light');
+                        localStorage.setItem('CONSOLE_THEME_CACHE', 'light');
+                    } else {
+                        htmlElement.setAttribute('data-theme', 'dark');
+                        localStorage.setItem('CONSOLE_THEME_CACHE', 'dark');
+                    }
+                });
+            }
+
+            // MOBILE APK HAMBURGER MENU INTERACTIVE LOOP
+            const hamburgerTrigger = document.getElementById('menu-hamburger-trigger');
+            const navPanel = document.getElementById('application-nav-panel');
+
+            if (hamburgerTrigger && navPanel) {
+                hamburgerTrigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    hamburgerTrigger.classList.toggle('active');
+                    navPanel.classList.toggle('show');
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!navPanel.contains(e.target) && !hamburgerTrigger.contains(e.target)) {
+                        hamburgerTrigger.classList.remove('active');
+                        navPanel.classList.remove('show');
+                    }
+                });
+            }
+
+            // 🔥 DYNAMIC RUNTIME CONVERSION ENGINE FOR HIGH-DENSITY MOBILE NATIVE PDFs
+            const downloadBtn = document.getElementById('pdf-download-trigger');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', () => {
+                    const wrapper = document.getElementById('master-app-wrapper');
+                    const ignoreBtnBlock = document.getElementById('ignore-pdf-render');
+
+                    // 1. Ingress Mode: Hide the non-render action card
+                    if (ignoreBtnBlock) ignoreBtnBlock.style.display = 'none';
+
+                    // 2. Force Mobile Stack Transformation onto the DOM container for perfect PDF scale geometry
+                    wrapper.classList.add('pdf-mobile-optimized-layout');
+
+                    // 3. Set compilation attributes
+                    const options = {
+                        margin: [8, 8, 8, 8],
+                        filename: 'Electric_Current_Technical_Manual.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: {
+                            scale: 2,
+                            useCORS: true,
+                            backgroundColor: '#0B0F19',
+                            scrollY: 0
+                        },
+                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    };
+
+                    // 4. Compile raw binary pipeline directly into client storage
+                    html2pdf().set(options).from(wrapper).save().then(() => {
+                        // 5. Egress Mode: Structural restoration of the DOM layer post download completion
+                        wrapper.classList.remove('pdf-mobile-optimized-layout');
+                        if (ignoreBtnBlock) ignoreBtnBlock.style.display = 'block';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

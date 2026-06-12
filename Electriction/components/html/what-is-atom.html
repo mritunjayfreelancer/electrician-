@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>What is Atom? Structure, Quantum Models & Technical Q&A | ITI Master</title>
+    <meta name="description"
+        content="Master the concepts of Atom Structure, Protons, Neutrons, Nucleus Force, Bohr's Atomic Model, and Shell Configurations. Professional ITI Electrician Theory Hub.">
+    <meta name="keywords"
+        content="Atom, Atomic Structure, Nucleus, Proton, Neutron, Bohr Model, Electron Configuration, K L M N Shells, ITI Electrician Theory">
+    <meta name="robots" content="index, follow">
+    <link class="seo-canonical" rel="canonical" href="https://yourdomain.com/components/html/what-is-atom.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-main: #0B0F19;
+            --bg-card: #131A2C;
+            --bg-cyber: #1E293B;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --neon-cyan: #06B6D4;
+            --neon-amber: #F59E0B;
+            --neon-green: #10B981;
+            --border-color: #334155;
+        }
+
+        [data-theme="light"] {
+            --bg-main: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-cyber: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --neon-cyan: #0891B2;
+            --neon-amber: #D97706;
+            --neon-green: #059669;
+            --border-color: #CBD5E1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-top: 90px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ⚡ MAIN NAVBAR ARCHITECTURE */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .highlight {
+            color: var(--neon-cyan);
+        }
+
+        .pro-tag {
+            background: var(--neon-amber);
+            color: #000;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-left: 5px;
+            font-weight: 800;
+        }
+
+        .header-right-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-anchor {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            background: var(--bg-cyber);
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-anchor:hover {
+            color: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+        }
+
+        .highlight-quiz-tab {
+            background: var(--neon-amber);
+            color: #000 !important;
+            font-weight: 800;
+            border: none;
+        }
+
+        .hamburger-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1100;
+        }
+
+        .hamburger-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                padding-top: 80px;
+            }
+
+            .hamburger-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 55px;
+                right: -20px;
+                width: calc(100% + 40px);
+                background: var(--bg-card);
+                border-bottom: 2px solid var(--border-color);
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+                display: none;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-anchor {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* GRID LAYOUT ARCHITECTURE */
+        .syllabus-page-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+            align-items: start;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .syllabus-page-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* LEFT SIDEBAR STACK */
+        .syllabus-preview-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky;
+            top: 110px;
+        }
+
+        @media (max-width: 968px) {
+            .syllabus-preview-sidebar {
+                position: static;
+            }
+        }
+
+        .card-image-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .card-image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .side-meta-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .quick-index-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--neon-amber);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .quick-links-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quick-links-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .hacker-terminal-badge {
+            background: #000;
+            color: #00FF00;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            text-align: center;
+            border: 1px solid #00FF00;
+        }
+
+        /* RIGHT PANEL: POWER SYSTEM DATA CARDS */
+        .matrix-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        @media (max-width: 480px) {
+            .matrix-card {
+                padding: 25px 20px;
+            }
+        }
+
+        .track-index {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .syllabus-main-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.25;
+        }
+
+        .syllabus-description-text {
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            text-align: justify;
+        }
+
+        /* PROFESSIONAL CORE DATA SECTIONS */
+        .deep-block {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .pdf-page-block {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .section-heading {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--neon-cyan);
+            margin-bottom: 18px;
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 18px 0 8px 0;
+            color: var(--text-primary);
+        }
+
+        .cyber-box {
+            background: var(--bg-cyber);
+            border: 1px dashed var(--border-color);
+            padding: 22px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        /* Q&A LAB DESIGN */
+        .qa-wrapper {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .qa-node {
+            background: rgba(6, 182, 212, 0.03);
+            border-left: 4px solid var(--neon-cyan);
+            padding: 18px;
+            border-radius: 0 8px 8px 0;
+            border: 1px solid rgba(51, 65, 85, 0.4);
+            border-left: 4px solid var(--neon-cyan);
+        }
+
+        .qa-question {
+            font-weight: 800;
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .qa-answer {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .telemetry-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .telemetry-list li {
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .telemetry-list li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: var(--neon-amber);
+        }
+
+        .download-trigger-container {
+            margin-top: 45px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(19, 26, 44, 0.8) 100%);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid var(--neon-green);
+        }
+
+        .document-feature-grid {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .green-glow-btn {
+            display: block;
+            width: 100%;
+            background: var(--neon-green);
+            color: #fff;
+            padding: 16px 24px;
+            font-size: 1rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .green-glow-btn:hover {
+            transform: translateY(-2px);
+            background: #0d9668;
+        }
+
+        .main-footer {
+            margin-top: 60px;
+            padding: 30px 0;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* 🔥 DYNAMIC CSS ENGINE FOR THE html2pdf EXPORT ENGINE */
+        .pdf-mobile-optimized-layout {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            max-width: 680px !important;
+            margin: 0 auto !important;
+            padding: 10px !important;
+            background-color: #0B0F19 !important;
+        }
+
+        .pdf-mobile-optimized-layout .matrix-card {
+            padding: 20px !important;
+            border: none !important;
+            background-color: #131A2C !important;
+        }
+
+        .pdf-mobile-optimized-layout .syllabus-page-layout {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+        }
+
+        .pdf-mobile-optimized-layout .syllabus-preview-sidebar {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header" role="banner">
+        <div class="container navbar">
+            <div class="logo" onclick="window.location.href='../../index.html';">
+                <span class="bolt-glow">⚡</span> ITI <span class="highlight">MASTER</span> <span
+                    class="pro-tag">FREE</span>
+            </div>
+
+            <div class="header-right-controls">
+                <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme">🌓
+                    MODE</button>
+                <button type="button" class="hamburger-toggle" id="menu-hamburger-trigger" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+            <nav class="nav-links" id="application-nav-panel">
+                <a href="../../index.html#explore-deck" class="nav-anchor">Fundamentals</a>
+                <a href="../../index.html#components-deck" class="nav-anchor">Components</a>
+                <a href="../../index.html#instruments-deck" class="nav-anchor">Instruments</a>
+                <a href="../../index.html#wiring-deck" class="nav-anchor">Wiring</a>
+                <a href="../../index.html#earthing-deck" class="nav-anchor">Earthing</a>
+                <a href="../../index.html#motor-control-deck" class="nav-anchor">Starters</a>
+                <a href="../../index.html#three-phase-deck" class="nav-anchor">3-Phase</a>
+                <a href="../../index.html#industrial-deck" class="nav-anchor">Industrial</a>
+                <a href="../../index.html#maintenance-deck" class="nav-anchor">Faults</a>
+                <a href="../../index.html#solar-deck" class="nav-anchor">Solar</a>
+                <a href="../../index.html#automation-deck" class="nav-anchor">Automation</a>
+                <a href="../../index.html#quiz-lab" class="nav-anchor highlight-quiz-tab">Launch Live Quiz</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" id="master-app-wrapper">
+        <div class="syllabus-page-layout">
+
+            <div class="syllabus-preview-sidebar" id="sidebar-panel">
+                <div class="card-image-box">
+                    <img src="../images/e14.jpg"
+                        alt="Atomic Structure with Nucleus Protons Neutrons and Electron Orbits Diagram">
+                    <p style="font-size:0.85rem; color: var(--text-secondary); margin-top:12px; font-weight:700;">
+                        Fundamental Atomic Model</p>
+                </div>
+
+                <div class="side-meta-card">
+                    <div class="quick-index-title">📌 Technical Index Modules</div>
+                    <ul class="quick-links-list">
+                        <li><a href="#sec-1">▶ 1. Core Core Particle Matrix</a></li>
+                        <li><a href="#sec-2">▶ 2. High-Voltage Models</a></li>
+                        <li><a href="#sec-3">▶ 3. Quantum Shell Balancing</a></li>
+                        <li><a href="#sec-4">▶ 4. Substation Exam Lab</a></li>
+                    </ul>
+                </div>
+
+                <div class="hacker-terminal-badge">
+                    SYSTEM_NODE // QUANTUM_ENERGY_ATOMIC_CORE
+                </div>
+            </div>
+
+            <div class="syllabus-details-content" id="core-content-deck">
+                <article class="matrix-card">
+                    <span class="track-index">TECHNICAL BLUEPRINT // ATOMIC THEORY & INDUSTRIAL MATERIALITY</span>
+
+                    <h1 class="syllabus-main-title">Atom (परमाणु): सूक्ष्म संरचना, नाभिकीय बल एवं इलेक्ट्रॉनिक विन्यास
+                    </h1>
+
+                    <p class="syllabus-description-text">
+                        इलेक्ट्रिकल और पावर सिस्टम इंजीनियरिंग के मूलभूत सिद्धांतों के अनुसार, <strong>परमाणु (Atom)
+                            किसी भी साधारण पदार्थ की सबसे छोटी और अविभाज्य इकाई (Smallest Unit of Matter) है</strong>,
+                        जो रासायनिक तत्वों के विशिष्ट गुणों को धारण करती है। विद्युत धारा का निर्माण, चालकों
+                        (Conductors) का प्रतिरोध और अर्धचालकों (Semiconductors) की कार्यप्रणाली पूर्णतः परमाणु के आंतरिक
+                        सब-एटॉमिक कणों के संतुलन और उनके विन्यास पर निर्भर करती है।
+                    </p>
+
+                    <div class="deep-block pdf-page-block" id="sec-1">
+                        <h2 class="section-heading">1. Subatomic Particles & Core Architecture (मूल उप-परमाणु कण)</h2>
+                        <p class="syllabus-description-text">
+                            यद्यपि परमाणु रासायनिक रूप से अविभाज्य है, किंतु इसकी आंतरिक संरचना में तीन मुख्य उप-परमाणु
+                            कण (Subatomic Particles) कार्यरत होते हैं:
+                        </p>
+                        <div class="cyber-box">
+                            <div class="subsection-title">A. Nucleus (नाभिक - केंद्रीय कोर)</div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 12px;">
+                                परमाणु के केंद्र में एक सघन, उच्च द्रव्यमान वाला भाग होता है जिसे <strong>नाभिक
+                                    (Nucleus)</strong> कहते हैं। इसकी खोज सन 1911 में <strong>Ernest Rutherford</strong>
+                                ने की थी। नाभिक के भीतर दो मूल कण स्थिर रहते हैं:
+                            </p>
+                            <ul class="telemetry-list" style="margin-bottom: 15px;">
+                                <li><strong>Proton (प्रोटॉन):</strong> इसकी खोज <strong>E. Goldstein</strong> (तथा
+                                    नामकरण रदरफोर्ड) द्वारा की गई थी। इस पर धनात्मक आवेश (Positive Charge = +1.602 ×
+                                    10⁻¹⁹ C) होता है।</li>
+                                <li><strong>Neutron (न्यूट्रॉन):</strong> इसकी खोज सन 1932 में <strong>James
+                                        Chadwick</strong> ने की थी। यह पूरी तरह से उदासीन (Charge-less / Neutral) होता
+                                    है, किंतु परमाणु के द्रव्यमान को स्थिरता प्रदान करता है।</li>
+                            </ul>
+
+                            <div class="subsection-title">B. Extra-Nuclear Region (बाह्य-नाभिकीय क्षेत्र)</div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                नाभिक के बाहर के विशाल रिक्त क्षेत्र में अत्यंत सूक्ष्म और हल्के कण तीव्र वेग से
+                                परिक्रमा करते हैं, जिन्हें <strong>Electron (इलेक्ट्रॉन)</strong> कहा जाता है। इन पर
+                                ऋणात्मक आवेश होता है, जो सामान्य अवस्था में प्रोटॉन के धनात्मक आवेश को संतुलित कर परमाणु
+                                को पूर्ण रूप से <strong>विद्युत उदासीन (Electrically Neutral)</strong> बनाए रखता है।
+                            </p>
+                        </div>
+
+                        <div class="qa-wrapper">
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 1. किसी परमाणु का परमाणु क्रमांक (Atomic Number) और
+                                    द्रव्यमान संख्या (Mass Number) तकनीकी रूप से क्या दर्शाते हैं?</div>
+                                <div class="qa-answer">उत्तर: किसी परमाणु के नाभिक में उपस्थित प्रोटॉनों की कुल संख्या
+                                    को उसका <strong>परमाणु क्रमांक (Z)</strong> कहते हैं, जो तत्व की रासायनिक पहचान है।
+                                    नाभिक में उपस्थित प्रोटॉनों और न्यूट्रॉनों की संयुक्त संख्या के योग को
+                                    <strong>द्रव्यमान संख्या (A)</strong> कहा जाता है। [सूत्र: A = P + N]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-2">
+                        <h2 class="section-heading">2. Standard Bohr's Atomic Model (नील्स बोर का परमाणु मॉडल)</h2>
+                        <p class="syllabus-description-text">
+                            सन 1913 में वैज्ञानिक <strong>Niels Bohr</strong> ने क्वांटम सिद्धांतों के आधार पर परमाणु का
+                            एक सुदृढ़ मॉडल प्रस्तुत किया, जो इलेक्ट्रिकल थ्योरी का आधार बना:
+                        </p>
+                        <div class="cyber-box" style="border-left: 4px solid var(--neon-cyan);">
+                            <strong>Core Quantum Postulates:</strong> इलेक्ट्रॉन नाभिक के चारों ओर मनमानी कक्षाओं में
+                            नहीं, बल्कि केवल कुछ निश्चित और गैर-विकिरणी (Non-Radiating) स्थिर कक्षाओं में ही परिक्रमा कर
+                            सकते हैं, जिन्हें <strong>ऊर्जा स्तर (Energy Levels) या शेल्स (Shells)</strong> कहा जाता है।
+                            जब तक इलेक्ट्रॉन अपनी निश्चित कक्षा में बना रहता है, वह ऊर्जा का उत्सर्जन या अवशोषण नहीं
+                            करता, जिससे परमाणु का स्थायित्व बना रहता है।
+                        </div>
+
+                        <div class="qa-wrapper">
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 2. रदरफोर्ड के परमाणु मॉडल की वह कौन सी मुख्य कमी थी
+                                    जिसे नील्स बोर ने सुधारा?</div>
+                                <div class="qa-answer">उत्तर: शास्त्रीय भौतिकी (Classical Physics) के अनुसार, यदि कोई
+                                    आवेशित कण (इलेक्ट्रॉन) लगातार घूर्णन करेगा, तो उसे निरंतर ऊर्जा उत्सर्जित करनी
+                                    चाहिए। इस प्रकार इलेक्ट्रॉन को अंततः नाभिक में गिर जाना चाहिए था और परमाणु नष्ट हो
+                                    जाता। रदरफोर्ड इस स्थायित्व की व्याख्या नहीं कर सके, जिसे बोर ने 'निश्चित ऊर्जा
+                                    स्तरों' का सिद्धांत देकर ठीक किया।</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-3">
+                        <h2 class="section-heading">3. Electronic Configuration & Shell Capacity (इलेक्ट्रॉनिक विन्यास
+                            एवं ऊर्जा कवच क्षमता)</h2>
+                        <p class="syllabus-description-text">
+                            किसी परमाणु की विभिन्न कक्षाओं में इलेक्ट्रॉनों के वितरण की व्यवस्था को <strong>इलेक्ट्रॉनिक
+                                विन्यास (Electronic Configuration)</strong> कहा जाता है। यह वितरण बोर-बरी (Bohr-Bury)
+                            योजना के नियमों द्वारा नियंत्रित होता है।
+                        </p>
+
+                        <div class="cyber-box">
+                            <strong style="color: #fff; font-size:1.05rem; display:block; margin-bottom:6px;">A. $2n^2$
+                                का मुख्य नियम</strong>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 12px;">
+                                किसी भी कक्षा या शेल में इलेक्ट्रॉनों की अधिकतम संख्या को ज्ञात करने का सूत्र
+                                <strong>$2n^2$</strong> होता है, जहाँ $n$ शेल की संख्या (कक्षा क्रमांक) है।
+                            </p>
+                            <ul class="telemetry-list"
+                                style="margin-bottom: 15px; font-family: 'JetBrains Mono', monospace;">
+                                <li>K-Shell (प्रथम कक्षा, n=1): $2(1)^2$ = 2 इलेक्ट्रॉन</li>
+                                <li>L-Shell (द्वितीय कक्षा, n=2): $2(2)^2$ = 8 इलेक्ट्रॉन</li>
+                                <li>M-Shell (तृतीय कक्षा, n=3): $2(3)^2$ = 18 इलेक्ट्रॉन</li>
+                                <li>N-Shell (चतुर्थ कक्षा, n=4): $2(4)^2$ = 32 इलेक्ट्रॉन</li>
+                            </ul>
+                            <strong style="color: #fff; font-size:1.05rem; display:block; margin-bottom:6px;">B. अष्टक
+                                नियम (Octet Rule)</strong>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                किसी भी परमाणु की सबसे बाहरी कक्षा (Outermost Shell) में कभी भी <strong>8 से अधिक
+                                    इलेक्ट्रॉन</strong> नहीं हो सकते, चाहे उस शेल की कुल क्षमता कितनी भी अधिक क्यों न
+                                हो। बाहरी कक्षा में 8 इलेक्ट्रॉन होने पर परमाणु रासायनिक रूप से पूर्णतः स्थिर (Inert) हो
+                                जाता है।
+                            </p>
+                        </div>
+
+                        <div class="qa-wrapper">
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 3. तांबे (Copper, Z=29) का इलेक्ट्रॉनिक विन्यास क्या है
+                                    और यह इसकी उच्च चालकता को कैसे प्रमाणित करता है?</div>
+                                <div class="qa-answer">उत्तर: तांबे (Copper) का इलेक्ट्रॉनिक विन्यास <strong>2, 8, 18,
+                                        1</strong> होता है। इसके सबसे बाहरी कवच (N-Shell) में केवल एक अकेला इलेक्ट्रॉन
+                                    होता है। नाभिक से अत्यधिक दूरी पर होने के कारण इस इलेक्ट्रॉन पर नाभिकीय आकर्षण बल
+                                    बहुत कमजोर होता है, जिससे यह बहुत कम वोल्टेज पर भी 'मुक्त इलेक्ट्रॉन' बनकर केबल में
+                                    उच्च विद्युत प्रवाह स्थापित कर देता है।</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-4">
+                        <h2 class="section-heading">4. Substation Grid & Exam-Oriented Logs</h2>
+                        <div class="cyber-box">
+                            <ul class="telemetry-list">
+                                <li><strong>Atomic Weight Matrix:</strong> परमाणु का लगभग संपूर्ण द्रव्यमान उसके नाभिक
+                                    में संकेंद्रित होता है, क्योंकि इलेक्ट्रॉनों का वजन नगण्य ($9.1 \times
+                                    10^{-31}\text{ kg}$) माना जाता है।</li>
+                                <li><strong>Isotopes (समस्थानिक):</strong> एक ही तत्व के वे परमाणु जिनकी परमाणु संख्या
+                                    (Protons) समान होती है परंतु न्यूट्रॉनों की संख्या भिन्न होने के कारण द्रव्यमान
+                                    संख्या अलग होती है, समस्थानिक कहलाते हैं (जैसे हाइड्रोजन के प्रोटियम, ड्यूटेरियम और
+                                    ट्रिटियम)।</li>
+                            </ul>
+                        </div>
+
+                        <div class="qa-wrapper">
+                            <div class="qa-node">
+                                <div class="qa-question">प्रश्न 4. यदि किसी परमाणु से एक इलेक्ट्रॉन बाहर निकल जाता है या
+                                    उसमें एक नया इलेक्ट्रॉन प्रवेश करता है, तो परमाणु विद्युत रूप से किस प्रकार प्रभावित
+                                    होता है?</div>
+                                <div class="qa-answer">उत्तर: सामान्य परमाणु उदासीन होता है। यदि उससे एक इलेक्ट्रॉन बाहर
+                                    निकल जाता है, तो उसमें प्रोटॉनों (धनात्मक) की संख्या अधिक हो जाती है और वह
+                                    <strong>धनायन (Positive Ion / Cation)</strong> बन जाता है। इसके विपरीत, इलेक्ट्रॉन
+                                    ग्रहण करने पर वह <strong>ऋणायन (Negative Ion / Anion)</strong> में परिवर्तित हो जाता
+                                    है। इसी आयनीकरण की प्रक्रिया से बैटरी और इलेक्ट्रोलाइट्स कार्य करते हैं।
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="download-trigger-container pdf-page-block" id="ignore-pdf-render">
+                        <div class="quick-index-title" style="color: var(--neon-green);">📦 Technical Documentation
+                            Vault</div>
+                        <div class="document-feature-grid">
+                            यह प्रमाणित परमाणु मैनुअल आपके कोर इलेक्ट्रिकल इंटरव्यू, ग्रिड सबस्टेशन वाइवा, और राष्ट्रीय
+                            तकनीकी परीक्षाओं (जैसे RRB ALP, ISRO Technical Assistant, DRDO Ceptam, UPPCL TG2) में उच्च
+                            अंक प्राप्त करने हेतु संकलित किया गया है। इसके ऑफलाइन पीडीएफ डेटा मेट्रिक्स में संपूर्ण
+                            ऊर्जा समीकरण और प्रश्नोत्तर लैब सम्मिलित हैं।
+                        </div>
+
+                        <button type="button" class="green-glow-btn" id="pdf-download-trigger">
+                            🚀 EXPORT DIRECT COMPREHENSIVE PDF NOW
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 ITI Electrician Master Academy Registry. Secure Infrastructure Channels Configured for
+                Android APK Deployments.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme setup
+            const savedCacheThemeMode = localStorage.getItem('CONSOLE_THEME_CACHE') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedCacheThemeMode);
+
+            // Toggle switch logic
+            const localThemeBtnNode = document.getElementById('theme-toggle-btn');
+            if (localThemeBtnNode) {
+                localThemeBtnNode.addEventListener('click', () => {
+                    const htmlElement = document.documentElement;
+                    if (htmlElement.getAttribute('data-theme') === 'dark') {
+                        htmlElement.setAttribute('data-theme', 'light');
+                        localStorage.setItem('CONSOLE_THEME_CACHE', 'light');
+                    } else {
+                        htmlElement.setAttribute('data-theme', 'dark');
+                        localStorage.setItem('CONSOLE_THEME_CACHE', 'dark');
+                    }
+                });
+            }
+
+            // MOBILE APK HAMBURGER MENU INTERACTIVE LOOP
+            const hamburgerTrigger = document.getElementById('menu-hamburger-trigger');
+            const navPanel = document.getElementById('application-nav-panel');
+
+            if (hamburgerTrigger && navPanel) {
+                hamburgerTrigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    hamburgerTrigger.classList.toggle('active');
+                    navPanel.classList.toggle('show');
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!navPanel.contains(e.target) && !hamburgerTrigger.contains(e.target)) {
+                        hamburgerTrigger.classList.remove('active');
+                        navPanel.classList.remove('show');
+                    }
+                });
+            }
+
+            // 🔥 DYNAMIC RUNTIME CONVERSION ENGINE FOR HIGH-DENSITY MOBILE NATIVE PDFs
+            const downloadBtn = document.getElementById('pdf-download-trigger');
+            if (downloadBtn) {
+                downloadBtn.addEventListener('click', () => {
+                    const wrapper = document.getElementById('master-app-wrapper');
+                    const ignoreBtnBlock = document.getElementById('ignore-pdf-render');
+
+                    // 1. Ingress Mode: Hide the non-render action card
+                    if (ignoreBtnBlock) ignoreBtnBlock.style.display = 'none';
+
+                    // 2. Force Mobile Stack Transformation onto the DOM container for perfect PDF scale geometry
+                    wrapper.classList.add('pdf-mobile-optimized-layout');
+
+                    // 3. Set compilation attributes
+                    const options = {
+                        margin: [8, 8, 8, 8],
+                        filename: 'What_Is_Atom_Technical_Manual.pdf',
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: {
+                            scale: 2,
+                            useCORS: true,
+                            backgroundColor: '#0B0F19',
+                            scrollY: 0
+                        },
+                        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                    };
+
+                    // 4. Compile raw binary pipeline directly into client storage
+                    html2pdf().set(options).from(wrapper).save().then(() => {
+                        // 5. Egress Mode: Structural restoration of the DOM layer post download completion
+                        wrapper.classList.remove('pdf-mobile-optimized-layout');
+                        if (ignoreBtnBlock) ignoreBtnBlock.style.display = 'block';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

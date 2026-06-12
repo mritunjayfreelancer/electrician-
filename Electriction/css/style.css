@@ -1,0 +1,1143 @@
+/* ==========================================================================
+   🌓 GLOBAL SEAMLESS HYBRID DUAL-THEME VARIABLES CORE ENGINE
+   ========================================================================== */
+html[data-theme="dark"] {
+    --bg-cyber: #02050a;
+    /* Premium AMOLED Jet Black */
+    --bg-surface: #0a101f;
+    /* Dashboard Steel Plates Surface */
+    --border-color: #1e293b;
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --nav-backdrop: rgba(2, 5, 10, 0.96);
+    --modal-body: #03060e;
+    --terminal-shell: #040712;
+}
+
+html[data-theme="light"] {
+    --bg-cyber: #f8fafc;
+    /* High-Profile Industrial Clean Slate White */
+    --bg-surface: #ffffff;
+    /* Crisp White Sheets Surface */
+    --border-color: #e2e8f0;
+    --text-primary: #0f172a;
+    /* Deep Charcoal Slate Contrast Text */
+    --text-secondary: #475569;
+    --nav-backdrop: rgba(255, 255, 255, 0.96);
+    --modal-body: #f1f5f9;
+    --terminal-shell: #e2e8f0;
+}
+
+:root {
+    --neon-cyan: #00f2fe;
+    /* High Voltage Electric Beam */
+    --neon-amber: #f59e0b;
+    --neon-green: #10b981;
+    --neon-red: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-cyber);
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background-color: var(--bg-cyber);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.segment-spacer {
+    padding: 80px 0 30px;
+    border-bottom: 1px dashed rgba(30, 41, 59, 0.3);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ==========================================================================
+   ⚡ FLUID GLASS HEADER LAYER AND HAMBURGER APP CONTROLLER
+   ========================================================================== */
+.main-header {
+    background: var(--nav-backdrop);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.logo .bolt-glow {
+    color: var(--neon-cyan);
+    text-shadow: 0 0 10px var(--neon-cyan);
+}
+
+.logo .highlight {
+    color: var(--neon-amber);
+}
+
+.pro-tag {
+    background: rgba(0, 242, 254, 0.1);
+    color: var(--neon-cyan);
+    font-size: 0.68rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease-out;
+    border: 1px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--neon-cyan);
+    background: rgba(0, 242, 254, 0.04);
+    border-color: rgba(0, 242, 254, 0.15);
+}
+
+.highlight-quiz-tab {
+    background: rgba(16, 185, 129, 0.08) !important;
+    color: var(--neon-green) !important;
+    border-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+/* Dynamic Theme Switch Mode Toggle Button */
+.theme-toggle-btn {
+    background: var(--bg-cyber);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.theme-toggle-btn:hover {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+}
+
+/* BRANDING HERO PROFILE DECK */
+.hero-section {
+    padding: 110px 0 60px;
+    text-align: center;
+    background: radial-gradient(circle at top, rgba(0, 242, 254, 0.05) 0%, transparent 60%);
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin-bottom: 18px;
+    color: var(--text-primary);
+}
+
+.hero-motivation {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    max-width: 760px;
+    margin: 0 auto 30px;
+}
+
+.hero-cta-btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.hero-action-quiz-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--neon-cyan) 0%, #0072ff 100%);
+    border: none;
+    color: #000;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.hero-action-quiz-btn:hover {
+    transform: scale(1.03);
+}
+
+.secondary-hero-btn {
+    background: var(--bg-surface) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+}
+
+/* ACADEMY STATS UI ROW */
+.stats-badge-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: -20px;
+    margin-bottom: 40px;
+}
+
+.stat-node-box {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+
+.var-cyan {
+    color: var(--neon-cyan);
+}
+
+.var-green {
+    color: var(--neon-green);
+}
+
+.var-amber {
+    color: var(--neon-amber);
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* VIRAL SYLLABUS DOCUMENT CARD ROW */
+.syllabus-download-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    text-align: left;
+}
+
+.syllabus-info-left h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 6px 0;
+}
+
+.syllabus-info-left p {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+
+.green-glow-btn {
+    background: linear-gradient(135deg, var(--neon-green) 0%, #047857 100%) !important;
+    color: #fff !important;
+}
+
+/* ==========================================================================
+   📦 HARDWARE NODE CARDS AND COLLAPSIBLE SUB GRIDS CONTROLLERS
+   ========================================================================== */
+.track-header-block {
+    margin-bottom: 35px;
+}
+
+.track-index {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--neon-cyan);
+    border: 1px solid var(--border-color);
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.section-motivational-tip {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 6px;
+}
+
+.formula-glow {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--neon-amber);
+    background: rgba(245, 158, 11, 0.05);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.sub-category-divider {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin: 40px 0 16px;
+    padding-left: 8px;
+    border-left: 3px solid var(--neon-cyan);
+}
+
+.group-spacer {
+    margin-bottom: 40px;
+}
+
+.components-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.component-node-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s ease;
+}
+
+.component-node-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--neon-cyan);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+}
+
+.component-node-card.card-border-red:hover {
+    border-color: var(--neon Red);
+}
+
+.component-node-card.card-border-amber:hover {
+    border-color: var(--neon-amber);
+}
+
+/* Asset Hardware Image Wrappers */
+.card-image-box {
+    width: 100%;
+    height: 140px;
+    background: var(--bg-cyber);
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.card-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.component-node-card:hover .card-image-box img {
+    transform: scale(1.04);
+}
+
+.card-meta-pricing {
+    padding: 16px 16px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.badge.tier-basic {
+    background: rgba(0, 242, 254, 0.05);
+    color: var(--neon-cyan);
+}
+
+.badge.tier-inter {
+    background: rgba(245, 158, 11, 0.05);
+    color: var(--neon-amber);
+}
+
+.badge.tier-adv {
+    background: rgba(239, 68, 68, 0.05);
+    color: var(--neon-red);
+}
+
+.badge.tier-pro {
+    background: rgba(16, 185, 129, 0.05);
+    color: var(--neon-green);
+}
+
+.price-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.price-tag del {
+    color: #64748b;
+    text-decoration: line-through;
+}
+
+.price-tag .free-glow {
+    color: var(--neon-green);
+    text-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
+}
+
+.card-node-info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-node-info h3,
+.card-node-info h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.card-node-info p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.execute-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--neon-cyan);
+}
+
+/* ==========================================================================
+   📊 METROLOGY SIDEBAR SPLIT PARAMETERS FOR INSTRUMENTS
+   ========================================================================== */
+.premium-macro-layout {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.analytics-meta-sidebar {
+    width: 30%;
+    background: var(--bg-surface);
+    border: 1px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 24px;
+    position: sticky;
+    top: 90px;
+}
+
+.analytics-meta-sidebar h3 {
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.hacker-checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.hacker-checklist li {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.hacker-terminal-badge {
+    background: var(--bg-cyber);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--neon-green);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.nodes-linear-stack {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.instrument-bar {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.bar-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.bar-meta h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.instrument-bar p {
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    margin-bottom: 14px;
+}
+
+.bar-image-wrapper {
+    width: 100%;
+    height: 120px;
+    background: var(--bg-cyber);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 12px;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.bar-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bar-link-btn {
+    display: inline-block;
+    color: #000;
+    background: var(--neon-green);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+/* NESTED GRIDS ARCHITECTURE */
+.matrix-sub-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.matrix-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.matrix-card h3 {
+    font-size: 1.05rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+    border-left: 3px solid var(--neon-cyan);
+    padding-left: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.strike-mini {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--neon-green);
+}
+
+.strike-mini del {
+    color: #64748b;
+    margin-right: 4px;
+}
+
+.matrix-image-wrapper {
+    width: 100%;
+    height: 110px;
+    background: var(--bg-cyber);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 14px;
+    border: 1px solid var(--border-color);
+    position: relative;
+}
+
+.matrix-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.links-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.links-box a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 6px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.01);
+    transition: all 0.2s ease;
+}
+
+.links-box a:hover {
+    color: var(--neon-cyan);
+    background: rgba(0, 242, 254, 0.03);
+    padding-left: 8px;
+}
+
+/* ==========================================================================
+   📊 PREMIUM LIVE MOCK QUIZ ENGINE LAB DESIGN SYSTEM
+   ========================================================================== */
+.quiz-terminal-shell {
+    background: var(--terminal-shell);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    margin-top: 30px;
+}
+
+.quiz-terminal-top-panel {
+    background: var(--bg-surface);
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.terminal-status-glow {
+    color: var(--neon-green);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.mono-font {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.quiz-internal-core-box {
+    padding: 35px;
+    background: var(--bg-surface);
+}
+
+.quiz-question-text-field {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.quiz-interactive-options-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.option-selection-card {
+    background: var(--bg-cyber);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    transition: all 0.15s ease-out;
+    color: var(--text-primary);
+    text-align: left;
+    width: 100%;
+}
+
+.option-selection-card:hover {
+    border-color: var(--neon-cyan);
+    background: var(--bg-surface);
+}
+
+.opt-index-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 800;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    color: var(--text-secondary);
+}
+
+.opt-text-payload {
+    font-size: 0.98rem;
+    font-weight: 600;
+}
+
+/* Selection Action Classes Triggered via Logic Engine */
+.option-selection-card.correct-glowing {
+    border-color: var(--neon-green) !important;
+    background: rgba(16, 185, 129, 0.02) !important;
+}
+
+.option-selection-card.correct-glowing .opt-index-label {
+    background: var(--neon-green) !important;
+    color: #000 !important;
+    border-color: var(--neon-green) !important;
+}
+
+.option-selection-card.wrong-glowing {
+    border-color: var(--neon-red) !important;
+    background: rgba(239, 68, 68, 0.02) !important;
+}
+
+.option-selection-card.wrong-glowing .opt-index-label {
+    background: var(--neon-red) !important;
+    color: #fff !important;
+    border-color: var(--neon-red) !important;
+}
+
+/* Solution Explanations Drawers */
+.diagnostic-solution-panel {
+    display: none;
+    margin-top: 30px;
+    background: var(--bg-cyber);
+    border: 1px dashed var(--border-color);
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.diagnostic-status-alert {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--neon-green);
+    margin-bottom: 8px;
+}
+
+#diagnostic-explanation-text-field {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.quiz-next-step-trigger-btn {
+    background: var(--text-primary);
+    border: none;
+    color: var(--bg-cyber);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   💻 INTERACTIVE MAC TERMINAL OVERLAY SHEETS CORES
+   ========================================================================== */
+.terminal-overlay-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(2, 4, 9, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.terminal-window-modal {
+    width: 100%;
+    max-width: 680px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.terminal-window-header {
+    background: var(--bg-cyber);
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mac-control-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.mac-control-dots .m-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.mac-control-dots .m-dot.red {
+    background-color: var(--neon-red);
+}
+
+.mac-control-dots .m-dot.yellow {
+    background-color: var(--neon-amber);
+}
+
+.mac-control-dots .m-dot.green {
+    background-color: var(--neon-green);
+}
+
+.terminal-tab-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: #475569;
+}
+
+.close-overlay-txt-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.terminal-internal-body {
+    padding: 30px;
+    background: var(--modal-body);
+}
+
+.compiling-glow-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--neon-cyan);
+    margin-bottom: 12px;
+}
+
+.terminal-internal-body h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.code-editor-mock-window {
+    background: var(--bg-cyber);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+}
+
+.ln-num {
+    color: #334155;
+    margin-right: 14px;
+}
+
+.code-txt-blue {
+    color: #38bdf8;
+}
+
+.code-txt-green {
+    color: #34d399;
+}
+
+.code-txt-amber {
+    color: #fbbf24;
+}
+
+.routing-explanation-box p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.file-path-terminal-alert {
+    background: var(--bg-cyber);
+    border: 1px dashed var(--border-color);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.88rem;
+    margin-bottom: 24px;
+}
+
+.file-path-terminal-alert .terminal-prompt {
+    color: #64748b;
+}
+
+#actual-folder-path-display {
+    color: var(--neon-amber);
+    font-weight: 700;
+}
+
+.modal-action-row {
+    text-align: right;
+}
+
+.modal-action-confirm-btn {
+    background: linear-gradient(135deg, var(--neon-cyan) 0%, #0072ff 100%);
+    border: none;
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* IMAGE FALLBACK HOOK LABELS BEFORE PHYSICAL GRAPHICS DISCOVERY */
+.card-image-box::before,
+.bar-image-wrapper::before,
+.matrix-image-wrapper::before {
+    content: "⚡ LOCAL IMAGE NODE SLOT";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-cyber);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.card-image-box img,
+.bar-image-wrapper img,
+.matrix-image-wrapper img {
+    position: relative;
+    z-index: 2;
+}
+
+.main-footer {
+    background: var(--bg-cyber);
+    border-top: 1px solid var(--border-color);
+    padding: 35px 0;
+    text-align: center;
+    color: #475569;
+    font-size: 0.82rem;
+}
+
+/* ==========================================================================
+   📱 100% PHONE RESPONSIVE MATRIX ALIGNMENTS (NATIVE APK SCALING)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .premium-macro-layout {
+        flex-direction: column;
+    }
+
+    .analytics-meta-sidebar,
+    .nodes-linear-stack {
+        width: 100%;
+    }
+
+    .analytics-meta-sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-toggle-label {
+        display: block;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .nav-toggle-label span,
+    .nav-toggle-label span::before,
+    .nav-toggle-label span::after {
+        display: block;
+        background: var(--text-primary);
+        height: 2px;
+        width: 22px;
+        position: relative;
+        transition: all 0.25s ease-in-out;
+    }
+
+    .nav-toggle-label span::before {
+        content: "";
+        position: absolute;
+        top: -6px;
+        left: 0;
+    }
+
+    .nav-toggle-label span::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 68px);
+        background-color: var(--bg-cyber);
+        border-top: 1px solid var(--border-color);
+        padding: 30px 20px;
+        gap: 14px;
+        overflow-y: auto;
+        white-space: normal;
+        max-width: 100%;
+    }
+
+    .nav-toggle:checked~.nav-links {
+        display: flex;
+    }
+
+    .nav-toggle:checked~.nav-toggle-label span {
+        background: transparent;
+    }
+
+    .nav-toggle:checked~.nav-toggle-label span::before {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .nav-toggle:checked~.nav-toggle-label span::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+    }
+
+    .nav-links a {
+        width: 100%;
+        font-size: 0.95rem;
+        padding: 12px;
+        border-bottom: 1px dashed var(--border-color);
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+        letter-spacing: -0.8px;
+    }
+
+    .components-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .syllabus-download-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .syllabus-action-right,
+    .syllabus-action-right button {
+        width: 100%;
+    }
+
+    .quiz-internal-core-box {
+        padding: 20px 14px;
+    }
+
+    .quiz-question-text-field {
+        font-size: 1.15rem;
+    }
+}

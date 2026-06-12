@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="hi" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>AC vs DC Current? Waveforms, Transmission Differences & Q&A | ITI Master</title>
+    <meta name="description"
+        content="Comprehensive guide on Alternating Current (AC) vs Direct Current (DC). Learn about skin effect, power factor, transformers compatibility, and industrial applications.">
+    <meta name="keywords"
+        content="AC vs DC, Alternating Current, Direct Current, Frequency, Power Factor, Skin Effect, Transformer, ITI Electrician Theory Hindi">
+    <meta name="robots" content="index, follow">
+    <link class="seo-canonical" rel="canonical" href="https://yourdomain.com/components/html/ac-dc.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <style>
+        :root {
+            --bg-main: #0B0F19;
+            --bg-card: #131A2C;
+            --bg-cyber: #1E293B;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --neon-cyan: #06B6D4;
+            --neon-amber: #F59E0B;
+            --neon-green: #10B981;
+            --neon-red: #EF4444;
+            --border-color: #334155;
+            --qa-bg: rgba(6, 182, 212, 0.03);
+            --mcq-bg: #1E293B;
+            --text-black: #FFFFFF;
+        }
+
+        /* HIGH-CONTRAST LIGHT THEME RE-ENGINEERED FOR PERFECT PDF RENDER */
+        [data-theme="light"] {
+            --bg-main: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --bg-cyber: #F1F5F9;
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-black: #0F172A;
+            --neon-cyan: #0891B2;
+            --neon-amber: #B45309;
+            --neon-green: #047857;
+            --neon-red: #B91C1C;
+            --border-color: #94A3B8;
+            --qa-bg: rgba(8, 145, 178, 0.06);
+            --mcq-bg: #E2E8F0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding-top: 90px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ⚡ MAIN NAVBAR ARCHITECTURE */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            cursor: pointer;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            color: var(--text-black);
+        }
+
+        .highlight {
+            color: var(--neon-cyan);
+        }
+
+        .header-right-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-anchor {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            background: var(--bg-cyber);
+            border: 1px solid var(--border-color);
+        }
+
+        .nav-anchor:hover {
+            color: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+        }
+
+        .hamburger-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1100;
+        }
+
+        .hamburger-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-black);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                padding-top: 80px;
+            }
+
+            .hamburger-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 55px;
+                right: -20px;
+                width: calc(100% + 40px);
+                background: var(--bg-card);
+                border-bottom: 2px solid var(--border-color);
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+                display: none;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .nav-anchor {
+                width: 100%;
+                text-align: center;
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* BOTTOM CHAPTER NAVIGATION BUTTONS */
+        .bottom-chapters-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .bottom-chapters-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .chapter-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 0.88rem;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .chapter-btn span {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .chapter-btn.cb-voltage {
+            border-left: 3px solid var(--neon-amber);
+            color: var(--neon-amber);
+        }
+
+        .chapter-btn.cb-current {
+            border-left: 3px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+
+        .chapter-btn.cb-resistance {
+            border-left: 3px solid var(--neon-red);
+            color: var(--neon-red);
+        }
+
+        .chapter-btn.cb-power {
+            border-left: 3px solid var(--neon-green);
+            color: var(--neon-green);
+        }
+
+        .chapter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(6, 182, 212, 0.1);
+        }
+
+        /* GRID LAYOUT ARCHITECTURE */
+        .syllabus-page-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+            align-items: start;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 968px) {
+            .syllabus-page-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* LEFT SIDEBAR STACK */
+        .syllabus-preview-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky;
+            top: 110px;
+        }
+
+        @media (max-width: 968px) {
+            .syllabus-preview-sidebar {
+                position: static;
+            }
+        }
+
+        .card-image-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .card-image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .side-meta-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .quick-index-title {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--neon-amber);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .quick-links-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quick-links-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.88rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .quick-links-list a:hover {
+            color: var(--neon-cyan);
+        }
+
+        .hacker-terminal-badge {
+            background: #000;
+            color: #00FF00;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            text-align: center;
+            border: 1px solid #00FF00;
+        }
+
+        /* RIGHT PANEL: POWER SYSTEM DATA CARDS */
+        .matrix-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        @media (max-width: 480px) {
+            .matrix-card {
+                padding: 25px 20px;
+            }
+        }
+
+        .track-index {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .syllabus-main-title {
+            font-size: 2.3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.25;
+            color: var(--text-black);
+        }
+
+        .syllabus-description-text {
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            text-align: justify;
+        }
+
+        /* PROFESSIONAL CORE DATA SECTIONS */
+        .deep-block {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .pdf-page-block {
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .section-heading {
+            font-size: 1.45rem;
+            font-weight: 800;
+            color: var(--neon-cyan);
+            margin-bottom: 18px;
+        }
+
+        .subsection-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 18px 0 8px 0;
+            color: var(--text-black);
+        }
+
+        .cyber-box {
+            background: var(--bg-cyber);
+            border: 1px dashed var(--border-color);
+            padding: 22px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        /* POP-UP MODAL ENGINE GATEKEEPER */
+        .terminal-overlay-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .terminal-window-modal {
+            background: #090D1A;
+            border: 2px solid var(--neon-amber);
+            width: 100%;
+            max-width: 550px;
+            border-radius: 8px;
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.25);
+            overflow: hidden;
+        }
+
+        [data-theme="light"] .terminal-window-modal {
+            background: #F8FAFC;
+        }
+
+        .terminal-window-header {
+            background: #131A2C;
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .terminal-tab-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.82rem;
+            color: var(--neon-amber);
+            font-weight: 700;
+        }
+
+        .close-overlay-txt-btn {
+            background: none;
+            border: none;
+            color: var(--neon-red);
+            cursor: pointer;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .terminal-internal-body {
+            padding: 25px;
+        }
+
+        .verification-option-btn {
+            background: var(--bg-cyber);
+            border: 1px solid var(--border-color);
+            padding: 12px 15px;
+            border-radius: 6px;
+            width: 100%;
+            text-align: left;
+            margin-top: 12px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+
+        .verification-option-btn:hover {
+            border-color: var(--neon-amber);
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .terminal-score-status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--neon-cyan);
+            margin-top: 15px;
+            display: block;
+            text-align: center;
+        }
+
+        .download-trigger-container {
+            margin-top: 45px;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(19, 26, 44, 0.6) 100%);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid var(--neon-green);
+        }
+
+        [data-theme="light"] .download-trigger-container {
+            background: linear-gradient(135deg, #F1F5F9 0%, #E2E8F0 100%);
+        }
+
+        .document-feature-grid {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .green-glow-btn {
+            display: block;
+            width: 100%;
+            background: var(--neon-green);
+            color: #fff !important;
+            padding: 16px 24px;
+            font-size: 1rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .green-glow-btn:hover {
+            transform: translateY(-2px);
+            background: #0d9668;
+        }
+
+        .main-footer {
+            margin-top: 60px;
+            padding: 30px 0;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* 🔥 DYNAMIC CSS ENGINE FOR THE html2pdf EXPORT ENGINE */
+        .pdf-mobile-optimized-layout {
+            display: flex !important;
+            flex-direction: column !important;
+            width: 100% !important;
+            max-width: 680px !important;
+            margin: 0 auto !important;
+            padding: 10px !important;
+        }
+
+        .pdf-mobile-optimized-layout .matrix-card {
+            padding: 20px !important;
+            border: none !important;
+        }
+
+        .pdf-mobile-optimized-layout .syllabus-page-layout {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 20px !important;
+        }
+
+        .pdf-mobile-optimized-layout .syllabus-preview-sidebar {
+            display: none !important;
+        }
+
+        .split-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .split-table th,
+        .split-table td {
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .split-table th {
+            background: var(--bg-cyber);
+            color: var(--neon-cyan);
+        }
+
+        .split-table td {
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header" role="banner">
+        <div class="container navbar">
+            <div class="logo" onclick="window.location.href='../../index.html';">
+                <span class="bolt-glow">⚡</span> ITI <span class="highlight">MASTER</span> <span
+                    class="pro-tag">FREE</span>
+            </div>
+
+            <div class="header-right-controls">
+                <button type="button" id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle Theme">🌓
+                    MODE</button>
+                <button type="button" class="hamburger-toggle" id="menu-hamburger-trigger" aria-label="Toggle Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+
+            <nav class="nav-links" id="application-nav-panel">
+                <a href="../../index.html#explore-deck" class="nav-anchor">Fundamentals</a>
+                <a href="../../index.html#components-deck" class="nav-anchor">Components</a>
+                <a href="../../index.html#instruments-deck" class="nav-anchor">Instruments</a>
+                <a href="../../index.html#wiring-deck" class="nav-anchor">Wiring</a>
+                <a href="../../index.html#earthing-deck" class="nav-anchor">Earthing</a>
+                <a href="../../index.html#motor-control-deck" class="nav-anchor">Starters</a>
+                <a href="../../index.html#three-phase-deck" class="nav-anchor">3-Phase</a>
+                <a href="../../index.html#industrial-deck" class="nav-anchor">Industrial</a>
+                <a href="../../index.html#maintenance-deck" class="nav-anchor">Faults</a>
+                <a href="../../index.html#solar-deck" class="nav-anchor">Solar</a>
+                <a href="../../index.html#automation-deck" class="nav-anchor">Automation</a>
+                <a href="../../index.html#quiz-lab" class="nav-anchor highlight-quiz-tab">Launch Live Quiz</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" id="master-app-wrapper">
+        <div class="syllabus-page-layout">
+
+            <div class="syllabus-preview-sidebar" id="sidebar-panel">
+                <div class="card-image-box">
+                    <img src="../images/ac-dc.png"
+                        alt="Alternating Current Sinewave versus Direct Current Constant Waveforms Comparison">
+                    <p style="font-size:0.85rem; color: var(--text-secondary); margin-top:12px; font-weight:700;">
+                        Waveform Telemetry Interface</p>
+                </div>
+
+                <div class="side-meta-card">
+                    <div class="quick-index-title">📌 Technical Index Modules</div>
+                    <ul class="quick-links-list">
+                        <li><a href="#sec-1">▶ 1. Fundamentals Analysis</a></li>
+                        <li><a href="#sec-2">▶ 2. Advanced Comparison Matrix</a></li>
+                        <li><a href="#sec-3">▶ 3. Deep Electrical Parameters</a></li>
+                        <li><a href="#sec-4">▶ 4. Industrial Substation Lab</a></li>
+                    </ul>
+                </div>
+
+                <div class="hacker-terminal-badge">
+                    SYSTEM_NODE // WAVEFORM_DIAGNOSTIC_CORE
+                </div>
+            </div>
+
+            <div class="syllabus-details-content" id="core-content-deck">
+                <article class="matrix-card">
+                    <span class="track-index">TECHNICAL BLUEPRINT // ELECTRICIAN THEORY ADVANCED</span>
+
+                    <h1 class="syllabus-main-title">AC vs DC: प्रत्यावर्ती धारा एवं दिष्ट धारा का गहन तुलनात्मक अध्ययन
+                    </h1>
+
+                    <p class="syllabus-description-text">
+                        इलेक्ट्रिकल पावर इंजीनियरिंग और जनरेशन सिस्टम्स के बुनियादी सिद्धांतों के अंतर्गत,
+                        <strong>प्रत्यावर्ती धारा (AC) और दिष्ट धारा (DC) विद्युत ऊर्जा संचरण के दो अलग-अलग स्तंभ
+                            हैं</strong>। इन दोनों धाराओं के बीच के सूक्ष्म और वृहद अंतर को समझना एक पेशेवर
+                        इलेक्ट्रिशियन और ग्रिड ऑपरेटर के लिए अत्यंत महत्वपूर्ण है। संपूर्ण औद्योगिक मशीनरी, ट्रांसफार्मर
+                        नेटवर्क और इलेक्ट्रॉनिक्स इन्हीं प्रणालियों पर आधारित हैं।
+                    </p>
+
+                    <div class="deep-block pdf-page-block" id="sec-1">
+                        <h2 class="section-heading">1. Core Fundamentals & Mathematical Waveforms (मूल परिभाषा एवं तरंग
+                            रूप)</h2>
+
+                        <div class="cyber-box">
+                            <div class="subsection-title">A. Alternating Current (AC - प्रत्यावर्ती धारा)</div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; text-align: justify;">
+                                वह विद्युत धारा जो समय के एक निश्चित अंतराल के साथ अपने परिमाण (Magnitude) और प्रवाह की
+                                दिशा (Direction) को निरंतर बदलती रहती है, प्रत्यावर्ती धारा कहलाती है। इसका तरंग रूप
+                                मुख्य रूप से <strong>ज्यावक्रीय (Sine Wave)</strong> होता है। भारत में राष्ट्रीय ग्रिड
+                                मानक के अनुसार इसकी आवृत्ति (Frequency) <strong>50 Hz</strong> (50 चक्र प्रति सेकंड)
+                                निर्धारित है, जिसका अर्थ है कि करंट 1 सेकंड में 50 बार अपनी दिशा बदलता है।
+                            </p>
+                        </div>
+
+
+
+                        <div class="cyber-box">
+                            <div class="subsection-title">B. Direct Current (DC - दिष्ट धारा)</div>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem; text-align: justify;">
+                                वह विद्युत धारा जो समय के सापेक्ष सदैव एक ही स्थिर दिशा में बिना किसी परिवर्तन के
+                                प्रवाहित होती है, दिष्ट धारा कहलाती है। इसका तरंग रूप एक सीधी रैखिक रेखा (Constant Flat
+                                Line Waveform) के समान होता है। चूँकि यह अपनी दिशा कभी नहीं बदलती, इसलिए इसकी आवृत्ति
+                                (Frequency) सदैव <strong>0 Hz</strong> होती है।
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-2">
+                        <h2 class="section-heading">2. Comprehensive Industrial Comparison Matrix (व्यापक औद्योगिक तुलना
+                            सारणी)</h2>
+                        <p class="syllabus-description-text">
+                            पावर सिस्टम्स डिज़ाइन और यूटिलिटी मैनेजमेंट के आधार पर दोनों धाराओं के प्रमुख मापदंडों की
+                            तुलना नीचे स्पष्ट की गई है:
+                        </p>
+
+                        <table class="split-table">
+                            <thead>
+                                <tr>
+                                    <th>तकनीकी मापदंड</th>
+                                    <th>Alternating Current (AC)</th>
+                                    <th>Direct Current (DC)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>आवृत्ति (Frequency)</strong></td>
+                                    <td>50 Hz (भारत में) | 60 Hz (USA में)</td>
+                                    <td>0 Hz (सदैव स्थिर)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>शक्ति गुणांक (Power Factor)</strong></td>
+                                    <td>0 और 1 के बीच (Inductive/Capacitive लोड के अनुसार)</td>
+                                    <td>सदैव 1 (स्थिर एकता - Unity Power Factor)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>वोल्टेज रूपांतरण</strong></td>
+                                    <td>Transformers द्वारा आसानी से Step-up या Step-down संभव है।</td>
+                                    <td>आसानी से रूपांतरण संभव नहीं (Booster/Chopper सर्किट्स आवश्यक)।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>उत्पादन क्षमता (Generation)</strong></td>
+                                    <td>उच्च वोल्टेज (11kV, 33kV) पर आसानी से जनरेट किया जा सकता है।</td>
+                                    <td>अधिकतम 650V तक ही सुरक्षित जनरेशन संभव है।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ऊर्जा संचरण हानियाँ (Losses)</strong></td>
+                                    <td>लंबी दूरी पर लाइन लॉसेस (Impedance के कारण) अधिक होते हैं।</td>
+                                    <td>लंबी दूरी पर संचरण हानियाँ (HVDC Grid में) न्यूनतम होती हैं।</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ऊर्जा भंडारण (Storage)</strong></td>
+                                    <td>इसे सीधे बैटरियों में संगृहीत (Store) नहीं किया जा सकता।</td>
+                                    <td>इसे रासायनिक सेलों और बैटरियों में स्टोर किया जा सकता है।</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="deep-block pdf-page-block" id="sec-3">
+                        <h2 class="section-heading">3. Deep Electrical Parameters & Advanced Phenomena (गहन तकनीकी
+                            सिद्धांत)</h2>
+                        <p class="syllabus-description-text">
+                            उच्च स्तरीय औद्योगिक इंटरव्यू और सबस्टेशन परीक्षाओं के लिए निम्नलिखित तीन वैज्ञानिक
+                            परिघटनाओं को समझना अत्यंत अनिवार्य है:
+                        </p>
+
+                        <div class="cyber-box">
+                            <div class="subsection-title">A. Skin Effect (त्वचा प्रभाव - केवल AC में)</h2>
+                                <p style="color: var(--text-secondary); font-size: 0.95rem; text-align: justify;">
+                                    जब उच्च आवृत्ति वाला अल्टरनेटिंग करंट किसी ठोस चालक से गुजरता है, तो वह चालक के
+                                    केंद्र (Core) से न बहकर उसकी केवल बाहरी सतह या त्वचा (Skin) से प्रवाहित होने का
+                                    प्रयास करता है। इसे <strong>Skin Effect</strong> कहते हैं। इसी कारण से ओवरहेड
+                                    ट्रांसमिशन लाइनों में ठोस तारों के बजाय पतले-पतले तारों को ऐंठकर बनाया गया
+                                    <strong>ACSR (Aluminium Conductor Steel Reinforced)</strong> कंडक्टर उपयोग किया जाता
+                                    है। DC में आवृत्ति 0Hz होने के कारण स्किन इफेक्ट पूरी तरह शून्य होता है और करंट पूरे
+                                    वायर के क्रॉस-सेक्शन से समान रूप से गुजरता है।
+                                </p>
+                            </div>
+
+                            <div class="cyber-box">
+                                <div class="subsection-title">B. Transformer Compatibility Matrix</h2>
+                                    <p style="color: var(--text-secondary); font-size: 0.95rem; text-align: justify;">
+                                        ट्रांसफार्मर पूरी तरह से **फैराडे के विद्युत चुंबकीय प्रेरण (Faraday's Law of
+                                        Induction)** पर कार्य करते हैं, जिसके लिए चुंबकीय फ्लक्स का लगातार बदलना
+                                        अनिवार्य है। चूंकि AC में दिशा बदलती है, इसलिए फ्लक्स भी बदलता है और
+                                        ट्रांसफार्मर सुचारू रूप से वोल्टेज बदल देता है। यदि ट्रांसफार्मर को गलती से भी
+                                        DC सप्लाई दे दी जाए, तो स्थिर चुंबकीय क्षेत्र के कारण बैक-EMF उत्पन्न नहीं होगा,
+                                        जिससे प्राइमरी वाइंडिंग अत्यधिक करंट के कारण **तत्क्षण जल जाएगी (Burn Out)**।
+                                    </p>
+                                </div>
+
+                                <div class="cyber-box">
+                                    <div class="subsection-title">C. Practical Conversion Devices (परिवर्तन प्रणालियाँ)
+                                    </div>
+                                    <ul class="telemetry-list">
+                                        <li><strong>AC to DC Conversion:</strong> इस प्रक्रिया को **Rectification** कहते
+                                            हैं और इसे डायोड ग्रिड आधारित **Rectifier (रेक्टिफायर)** द्वारा संपन्न किया
+                                            जाता है।</li>
+                                        <li><strong>DC to AC Conversion:</strong> इस प्रक्रिया को **Inversion** कहते हैं
+                                            और इसे सेमीकंडक्टर IGBT आधारित **Inverter (इन्वेर्टर)** द्वारा संपन्न किया
+                                            जाता है।</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="deep-block pdf-page-block" id="sec-4">
+                                <h2 class="section-heading">4. Professional Electrical Panel Board Interview Q&A Hub
+                                </h2>
+                                <div class="qa-wrapper">
+                                    <div class="qa-node">
+                                        <div class="qa-question">प्रश्न 1. यदि ट्रांसफार्मर की प्राइमरी वाइंडिंग को
+                                            डायरेक्ट DC सप्लाई से जोड़ दिया जाए तो क्या घटित होगा?</div>
+                                        <div class="qa-answer">उत्तर: DC सप्लाई में आवृत्ति शून्य होने के कारण कोई
+                                            परिवर्तनीय चुंबकीय फ्लक्स नहीं बनेगा, जिससे वाइंडिंग में सेल्फ-इंडक्शन या
+                                            बैक-EMF उत्पन्न नहीं होगा। परिणामतः ओम के नियम के अनुसार वाइंडिंग अत्यधिक
+                                            भारी करंट खींचेगी और कुछ ही सेकंड में जलकर नष्ट हो जाएगी।</div>
+                                    </div>
+                                    <div class="qa-node">
+                                        <div class="qa-question">प्रश्न 2. लंबी दूरी के ट्रांसमिशन के लिए वर्तमान में
+                                            HVDC (High Voltage Direct Current) को क्यों प्राथमिकता दी जा रही है?</div>
+                                        <div class="qa-answer">उत्तर: HVDC में इंडक्टिव और कैपेसिटिव रिएक्टेंस
+                                            (Impedance) की अनुपस्थिति होती है, जिससे स्किन इफेक्ट और कोरोना लॉस न्यूनतम
+                                            हो जाते हैं। इसके अतिरिक्त, DC संचरण के लिए केवल दो तारों (प्लस और माइनस) की
+                                            आवश्यकता होती है, जिससे कॉपर/एल्युमिनियम मटीरियल की भारी बचत होती है।</div>
+                                    </div>
+                                    <div class="qa-node">
+                                        <div class="qa-question">प्रश्न 3. स्किन इफेक्ट (Skin Effect) क्या है और इसे
+                                            ओवरहेड लाइनों में कैसे कम किया जाता है?</div>
+                                        <div class="qa-answer">उत्तर: AC करंट के चालक के केंद्र से न बहकर केवल उसकी
+                                            बाहरी सतह से बहने की प्रवृत्ति को स्किन इफेक्ट कहते हैं। इसे कम करने के लिए
+                                            सिंगल सॉलिड वायर के स्थान पर स्टैंडर्ड स्टैंडर्ड ऐंठे हुए ACSR
+                                            मल्टी-स्ट्रैंड कंडक्टर्स का उपयोग किया जाता है।</div>
+                                    </div>
+                                    <div class="qa-node">
+                                        <div class="qa-question">प्रश्न 4. डीसी सर्किट का पावर फैक्टर सदैव 'एकता' (Unity
+                                            - 1) क्यों होता है?</div>
+                                        <div class="qa-answer">उत्तर: क्योंकि DC में वोल्टेज और करंट के बीच कोई फेज
+                                            विस्थापन (Phase Angle - $\phi$) नहीं होता, दोनों सदैव एक ही फेज रेखा में
+                                            चलते हैं, इसलिए $\cos(0) = 1$ अर्थात पावर फैक्टर सदैव यूनिटी रहता है।</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="download-trigger-container pdf-page-block" id="ignore-pdf-render">
+                                <div class="quick-index-title" style="color: var(--neon-green);">📦 Technical
+                                    Documentation Vault</div>
+                                <div class="document-feature-grid">
+                                    यह प्रामाणिक AC vs DC नियमावली मैनुअल आपके कोर औद्योगिक इंटरव्यू, ग्रिड सबस्टेशन
+                                    वाइवा, और राष्ट्रीय तकनीकी परीक्षाओं (जैसे RRB ALP, ISRO Technical Assistant, DRDO
+                                    Ceptam, UPPCL TG2) में शत-प्रतिशत सफलता प्राप्त करने हेतु संकलित किया गया है।
+                                </div>
+
+                                <button type="button" class="green-glow-btn" id="pdf-download-trigger">
+                                    🚀 EXPORT COMPREHENSIVE AC-DC PDF
+                                </button>
+                            </div>
+
+                            <div class="bottom-chapters-container" id="bottom-nav-block">
+                                <a href="what-is-voltage.html" class="chapter-btn cb-voltage">
+                                    Voltage (V)
+                                    <span>Voltage module padhein &rarr;</span>
+                                </a>
+                                <a href="current.html" class="chapter-btn cb-current">
+                                    Current (I)
+                                    <span>Current module padhein &rarr;</span>
+                                </a>
+                                <a href="what-is-resistance.html" class="chapter-btn cb-resistance">
+                                    Resistance (R)
+                                    <span>Resistance module padhein &rarr;</span>
+                                </a>
+                                <a href="what-is-power.html" class="chapter-btn cb-power">
+                                    Power (W)
+                                    <span>Power module padhein &rarr;</span>
+                                </a>
+                            </div>
+                </article>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="security-quiz-modal" class="terminal-overlay-backdrop" role="dialog" aria-modal="true">
+        <div class="terminal-window-modal">
+            <div class="terminal-window-header">
+                <div class="terminal-tab-title">SECURITY_AUTH_GATEKEEPER.EXE</div>
+                <button type="button" class="close-overlay-txt-btn"
+                    onclick="abortVerificationPipeline()">[ABORT]</button>
+            </div>
+            <div class="terminal-internal-body">
+                <p id="modal-instructions"
+                    style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 15px; border-bottom: 1px dashed var(--border-color); padding-bottom: 10px;">
+                    >> WARNING: Manual access locked. Answer 5 consecutive MCQs. Minimum 3 correct answers required to
+                    download.
+                </p>
+
+                <div id="modal-quiz-arena">
+                    <h3 id="pop-question-text"
+                        style="font-size: 1.05rem; font-weight: 800; color: var(--text-black); margin-bottom: 15px;">
+                        Loading Verification Question Node...</h3>
+                    <div id="pop-options-box"></div>
+                </div>
+
+                <span id="pop-score-status" class="terminal-score-status">STAGE TRACKER // LEVEL: 1 of 5</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 ITI Electrician Master Academy Registry. Secure Infrastructure Channels Configured for
+                Android APK Deployments.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme setup
+            const savedCacheThemeMode = localStorage.getItem('CONSOLE_THEME_CACHE') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedCacheThemeMode);
+
+            // Toggle switch logic
+            const localThemeBtnNode = document.getElementById('theme-toggle-btn');
+            if (localThemeBtnNode) {
+                localThemeBtnNode.addEventListener('click', () => {
+                    const htmlElement = document.documentElement;
+                    if (htmlElement.getAttribute('data-theme') === 'dark') {
+                        htmlElement.setAttribute('data-theme', 'light');
+                        localStorage.setItem('CONSOLE_THEME_CACHE', 'light');
+                    } else {
+                        htmlElement.setAttribute('data-theme', 'dark');
+                        localStorage.setItem('CONSOLE_THEME_CACHE', 'dark');
+                    }
+                });
+            }
+
+            // MOBILE APK HAMBURGER MENU INTERACTIVE LOOP
+            const hamburgerTrigger = document.getElementById('menu-hamburger-trigger');
+            const navPanel = document.getElementById('application-nav-panel');
+
+            if (hamburgerTrigger && navPanel) {
+                hamburgerTrigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    hamburgerTrigger.classList.toggle('active');
+                    navPanel.classList.toggle('show');
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!navPanel.contains(e.target) && !hamburgerTrigger.contains(e.target)) {
+                        hamburgerTrigger.classList.remove('active');
+                        navPanel.classList.remove('show');
+                    }
+                });
+            }
+
+            // 🔥 HIGH-SECURITY MODAL WINDOW SYSTEM: 5 MCQs FOR AC vs DC
+            const gatekeeperDatabase = [
+                {
+                    q: "1. Direct Current (DC) की आवृत्ति (Frequency) तकनीकी रूप से कितनी होती है?",
+                    opts: ["A) 50 Hz", "B) 60 Hz", "C) 0 Hz", "D) 100 Hz"],
+                    ans: 2
+                },
+                {
+                    q: "2. केवल AC सर्किट में होने वाली वह परिघटना क्या कहलाती है जिसमें करंट कंडक्टर की सतह से बहता है?",
+                    opts: ["A) Corona Effect", "B) Skin Effect", "C) Proximity Effect", "D) Proximity Check"],
+                    ans: 1
+                },
+                {
+                    q: "3. यदि किसी ट्रांसफार्मर को डायरेक्ट DC सप्लाई दी जाए, तो क्या होगा?",
+                    opts: ["A) वह बेहतर काम करेगा", "B) वोल्टेज बहुत बढ़ा देगा", "C) उसकी वाइंडिंग जल जाएगी", "D) उसकी वाइंडिंग ठंडी रहेगी"],
+                    ans: 2
+                },
+                {
+                    q: "4. AC करंट को DC करंट में बदलने वाली प्रक्रिया (Device) का नाम क्या है?",
+                    opts: ["A) Inverter", "B) Rectifier", "C) Chopper", "D) Transformer"],
+                    ans: 1
+                },
+                {
+                    q: "5. DC सर्किट का पावर फैक्टर (Power Factor) सदैव कितना होता है?",
+                    opts: ["A) 0", "B) 0.8 lagging", "C) 1 (Unity)", "D) 0.5 leading"],
+                    ans: 2
+                }
+            ];
+
+            let activeQuestIdx = 0;
+            let userCorrectScore = 0;
+
+            const triggerBtn = document.getElementById('pdf-download-trigger');
+            const popModal = document.getElementById('security-quiz-modal');
+            const popQText = document.getElementById('pop-question-text');
+            const popOptsBox = document.getElementById('pop-options-box');
+            const popScoreTxt = document.getElementById('pop-score-status');
+
+            if (triggerBtn && popModal) {
+                triggerBtn.addEventListener('click', () => {
+                    activeQuestIdx = 0;
+                    userCorrectScore = 0;
+                    popModal.style.display = 'flex';
+                    renderModalQuestionNode();
+                });
+            }
+
+            window.abortVerificationPipeline = function () {
+                popModal.style.display = 'none';
+            }
+
+            function renderModalQuestionNode() {
+                popOptsBox.innerHTML = '';
+
+                if (activeQuestIdx < gatekeeperDatabase.length) {
+                    let data = gatekeeperDatabase[activeQuestIdx];
+                    popQText.innerText = data.q;
+                    popScoreTxt.innerText = `STAGE TRACKER // LEVEL: ${activeQuestIdx + 1} of 5`;
+
+                    data.opts.forEach((optText, index) => {
+                        let optBtn = document.createElement('button');
+                        optBtn.className = 'verification-option-btn';
+                        optBtn.type = 'button';
+                        optBtn.innerText = optText;
+                        optBtn.addEventListener('click', () => assessModalChoice(index));
+                        popOptsBox.appendChild(optBtn);
+                    });
+                } else {
+                    evaluatePassingThreshold();
+                }
+            }
+
+            function assessModalChoice(chosenIdx) {
+                let actualCorrectIdx = gatekeeperDatabase[activeQuestIdx].ans;
+                if (chosenIdx === actualCorrectIdx) {
+                    userCorrectScore++;
+                }
+                activeQuestIdx++;
+                renderModalQuestionNode();
+            }
+
+            function evaluatePassingThreshold() {
+                popOptsBox.innerHTML = '';
+                if (userCorrectScore >= 3) {
+                    popQText.innerHTML = `🎉 ACCESS GRANTED!<br><span style="color:var(--neon-green)">Score: ${userCorrectScore}/5</span>. Verification loop clear. Compiling manual data pipeline...`;
+                    popScoreTxt.innerText = "CRITICAL_AUTH: VERIFIED_SUCCESSFUL";
+
+                    setTimeout(() => {
+                        popModal.style.display = 'none';
+                        executePristinePdfPipeline();
+                    }, 1800);
+                } else {
+                    popQText.innerHTML = `❌ ACCESS DENIED!<br><span style="color:var(--neon-red)">Score: ${userCorrectScore}/5</span>. Passing metric is minimum 3 correct answers.`;
+                    popScoreTxt.innerText = "CRITICAL_AUTH: VALIDATION_FAILED";
+
+                    let retryBtn = document.createElement('button');
+                    retryBtn.className = 'green-glow-btn';
+                    retryBtn.style.background = 'var(--neon-red)';
+                    retryBtn.innerText = "🔄 RETRY VERIFICATION TEST";
+                    retryBtn.addEventListener('click', () => {
+                        activeQuestIdx = 0;
+                        userCorrectScore = 0;
+                        renderModalQuestionNode();
+                    });
+                    popOptsBox.appendChild(retryBtn);
+                }
+            }
+
+            function executePristinePdfPipeline() {
+                const wrapper = document.getElementById('master-app-wrapper');
+                const ignoreBtnBlock = document.getElementById('ignore-pdf-render');
+                const bottomNavBlock = document.getElementById('bottom-nav-block');
+                const trioNavBlock = document.getElementById('trio-nav-block');
+
+                if (ignoreBtnBlock) ignoreBtnBlock.style.display = 'none';
+                if (bottomNavBlock) bottomNavBlock.style.display = 'none';
+                if (trioNavBlock) trioNavBlock.style.display = 'none';
+
+                wrapper.classList.add('pdf-mobile-optimized-layout');
+
+                const options = {
+                    margin: [8, 8, 8, 8],
+                    filename: 'AC_vs_DC_Technical_Industrial_Manual.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: {
+                        scale: 2,
+                        useCORS: true,
+                        backgroundColor: document.documentElement.getAttribute('data-theme') === 'light' ? '#F8FAFC' : '#0B0F19',
+                        scrollY: 0
+                    },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+
+                html2pdf().set(options).from(wrapper).save().then(() => {
+                    wrapper.classList.remove('pdf-mobile-optimized-layout');
+                    if (ignoreBtnBlock) ignoreBtnBlock.style.display = 'block';
+                    if (bottomNavBlock) bottomNavBlock.style.display = 'grid';
+                    if (trioNavBlock) trioNavBlock.style.display = 'grid';
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
